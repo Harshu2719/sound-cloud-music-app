@@ -1,0 +1,63 @@
+.p-box {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    height: 450px;
+    width: 1240px ;
+    background: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_featured_artists-8081257b.jpg) 50%/cover no-repeat;
+}
+
+.c1-box {
+    justify-content: space-evenly;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+.p-heading {
+    color: white;
+    padding: 20px;
+}
+#modal-modal-title {
+    margin-bottom: 10px;
+}
+
+.fb-btn {
+    width: 100%;
+    background-color: #3578e5;
+    border-color: #3578e5;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    line-height: 18px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+.go-btn {
+    width: 100%;
+    background-color: #fff;
+    border-color: #ccc;
+    color: #222;
+    font-size: 16px;
+    height: 40px;
+    line-height: 18px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+.ap-btn {
+    width: 100%;
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    line-height: 18px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+.auth-method-separator {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 1em auto;
+    position: relative;
+    text-align: center;
+}
