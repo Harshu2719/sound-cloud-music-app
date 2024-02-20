@@ -12,7 +12,7 @@ const Logo = () => {
         padding: '12px 0',
     }
   return (
-    <Link style={{display: 'block', width: '69px', height: '46px'}} to='/Home'>
+    <Link style={{display: 'block', width: '69px', height: '46px'}} to='discover'>
         <div style={style}></div>
     </Link>
   )

@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { VscDebugPause } from "react-icons/vsc";
 import { VscDebugStart } from "react-icons/vsc";
+import StateContext from '../contexts/StateContext';
 
 
-const Song = ({index, setIndex, song, setPlay, play, currentlyPlayingSong, setAudioPlayerVisibility}) => {
+const Song = ({index, song, currentlyPlayingSong, setAudioPlayerVisibility}) => {
 
   const [isHovering, setIsHovering] = useState(false);
+  const {currentSongInfo, setCurrentSongInfo} = useContext(StateContext);
 
+  let state = {...currentSongInfo};
   const handleMouseOver = () => {
     setIsHovering(true);
   };
@@ -38,7 +41,7 @@ const Song = ({index, setIndex, song, setPlay, play, currentlyPlayingSong, setAu
     }
     const handleButtonIcon = () => {
       //console.log(play);
-        if((song._id === currentlyPlayingSong?._id) && play) {
+        if((song._id === currentlyPlayingSong?._id) && state.play) {
           setButtonIcon(VscDebugPause);
         } else {
           setButtonIcon(VscDebugStart);
@@ -47,13 +50,15 @@ const Song = ({index, setIndex, song, setPlay, play, currentlyPlayingSong, setAu
 
     useEffect(()=>{
         handleButtonIcon()
-    }, [currentlyPlayingSong, play])
+    }, [currentlyPlayingSong, state.play])
 
     const handleSetPlay = ()=> {
       if(currentlyPlayingSong != song) { 
-        setPlay(true)
+        state.play = true;
+        // setCurrentSongInfo({...currentSongInfo, play: true, songIndex: index})
       } else {
-        setPlay(!play)
+        state.play = !state.play;
+        // setCurrentSongInfo({...currentSongInfo, play: !currentSongInfo.play, songIndex: index})
       }
     }
     const styleSingers = {
@@ -73,22 +78,27 @@ const Song = ({index, setIndex, song, setPlay, play, currentlyPlayingSong, setAu
     setAudioPlayerVisibility(true)
     handleSetPlay()
     handleButtonIcon()
-    setIndex(index);
+    state.songIndex = index;
+    state.isAudioPlayerVisible = true;
+    setCurrentSongInfo(state);
+    //console.log(currentSongInfo.song)
   }
+
+  //console.log(useContext(StateContext), 'sfvbsnbsrzgdrsh')
 
  
   return (
     <>
-    <div style={{border: 'none', width: '180px', margin: '10px', borderRadius: '5px'}}>
+    <div style={{border: 'none', width: '180px', margin: '10px', borderRadius: '5px', height: '258px'}}> 
       <div key={song._id} className='card-item' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={styleContainerItem}>
         {isHovering && <button style={buttonStyle} onClick={()=> {onClickFunction()}}>{buttonIcon}</button>}       
       </div>
       <div style={{...styleSingers, fontSize: '15px', fontWeight: '600'}}>{song?.title}</div>
-      <div style={styleSingers}>{song?.artist.map(ele => {
-        return (<span >{ele?.name + ", "} </span>)
-      })}
+      <div style={styleSingers}><span >{song?.artist.map(ele => {
+        return (ele?.name)
+      }).join(', ')}</span>
       </div>
-    </div> 
+    </div>  
     </>
   )
 }

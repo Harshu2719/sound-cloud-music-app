@@ -22,7 +22,7 @@ const SearchInput = () => {
 
     }
     const style = {
-        margin: '20px',
+        margin: '49px 0 12px',
         padding: '9px 10px 8px',
         margin: 'auto',
         display: 'flex',

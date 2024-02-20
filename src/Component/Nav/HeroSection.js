@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import SigninModal from "./SigninModal";
 
-const HeroSectionNav = () => {
+const HeroSection = () => {
   const [open, setOpen] = React.useState(false);
   const [condition, setCondition] = React.useState('')
 
@@ -55,9 +55,4 @@ const HeroSectionNav = () => {
     </>
   );
 };
-export default HeroSectionNav;
-// const prop = {
-//   open: open,
-//   handleClose: handleClose,
-//   condition: condition
-// }
+export default HeroSection;

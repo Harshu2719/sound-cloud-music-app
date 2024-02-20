@@ -1,7 +1,7 @@
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Login from '../Authentication.js';
+import Login from './Authentication/Authentication.js';
 import React, { useEffect } from "react";
 
 

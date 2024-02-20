@@ -1,5 +1,5 @@
 import React from 'react';
-import { bearer_token, project_ID, app_Type, base_URL } from './constant';
+import { bearer_token, project_ID, app_Type, base_URL } from '../../constant';
 import { useState } from 'react';
 
 const Login = ({condition})=> {

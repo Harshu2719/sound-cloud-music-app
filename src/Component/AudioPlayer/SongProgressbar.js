@@ -19,11 +19,26 @@ const SongProgressbar = ({duration, currentTime, progressbarRef, audioRef}) => {
       console.log(currentTime)
       audioRef.current.currentTime = progressbarRef.current.value
     }
+    const styleTime = {
+      width: '50px',
+      height: '46px',
+      color: '#f50',
+      textAlign: 'right',
+      lineHeight: '46px',
+      fontSize: '12px',
+      paddingRight: '10px'
+    }
+    const styleProgressbar = {
+      backgroundColor: 'rgba(240, 9, 9, 0.397)',
+      width: '500px',
+      cursor: 'pointer',
+      margin:' 0 auto',
+    }
   return (
-    <div>
-      <span>{formatTime(currentTime)}</span>
-      <input type='range' ref={progressbarRef} onChange={handle} defaultValue={0}/>
-      <span>{formatTime(duration)}</span>
+    <div style={{display: 'flex', width: '600px'}}>
+      <span style={styleTime}>{formatTime(currentTime)}</span>
+      <input style={styleProgressbar} type='range' ref={progressbarRef} onChange={handle} defaultValue={0}/>
+      <span style={styleTime}>{formatTime(duration)}</span>
     </div>
   )
 }

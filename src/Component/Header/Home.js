@@ -6,7 +6,7 @@ const Home = ({style})=> {
 
     
     return (
-        <Link style={style} to='/Home'>Home</Link>
+        <Link style={style} to='/discover'>Home</Link>
     )
 }
 export default Home;

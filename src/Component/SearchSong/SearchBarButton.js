@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import SongList from './SongList';
+import SongList from '../SongsFromAPI/SongList';
 
 
 const SearchBarButton = ({songNameTitle})=> {
@@ -31,7 +31,6 @@ const SearchBarButton = ({songNameTitle})=> {
     
     const styleBtn = {
         height: '15px',
-        width: '15px',
         // padding: '16px',
         backgroundColor: 'rgb(229, 229, 229)',
         color: 'white',

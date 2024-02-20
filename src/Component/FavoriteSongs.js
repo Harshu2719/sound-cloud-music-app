@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import SongList from './SongList';
+import SongList from './SongsFromAPI/SongList';
 
 const FavoriteSongs = () => {
     const [favoriteSongs, setFavoriteSongs] = useState([]);

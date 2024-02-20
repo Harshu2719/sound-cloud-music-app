@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import StateContext from '../contexts/StateContext';
 
-const SetFavoriteSongButton = ({song}) => {
-  // console.log(song._id)
-  // console.log(`Bearer ${localStorage.getItem('token')}`);
+const SetFavoriteSongButton = ({currentlyPlayingSong}) => {
+
   const  setFavorite = async ()=> {
     try{
         const header = {
@@ -11,7 +11,7 @@ const SetFavoriteSongButton = ({song}) => {
           "Content-Type": "application/json"
         };
         const songDetail = {
-          songId: song?._id
+          songId: currentlyPlayingSong?._id
       };
         const patchSong = await fetch('https://academics.newtonschool.co/api/v1/music/favorites/like', {
             method: 'PATCH',
@@ -25,11 +25,15 @@ const SetFavoriteSongButton = ({song}) => {
         alert('Not responding server')
     }
 }
+  const style = {
+    background: 'transparent',
+    border: 'none'
+  }
     
   return (
-    <div>
-        <button onClick={setFavorite}>🖤</button>
-    </div>
+    
+    <button style={style} onClick={setFavorite}>🖤</button>
+    
   )
 }
 

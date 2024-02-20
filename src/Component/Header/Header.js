@@ -4,7 +4,7 @@ import Logo from './Logo';
 import Home from './Home';
 import Favorites from './Favorites';
 import Library from './Library';
-import SearchInput from '../SearchInput';
+import SearchInput from '../SearchSong/SearchInput';
 import HeaderAuthenticationBtn from './HeaderAuthenticationBtn';
 
 const Header = () => {

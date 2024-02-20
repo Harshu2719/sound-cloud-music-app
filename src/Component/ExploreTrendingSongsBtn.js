@@ -9,12 +9,14 @@ const ExploreTrendingSongs = () => {
         borderRadius: '5px',
         textDecoration: 'none',
         color: 'white',
-        backgroundColor: 'darkgray'
+        backgroundColor: '#f50',
+        borderColor: '#f50',
+        color: '#fff',
     } 
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-        <Link style={style} to='/Home'>Explore Trending Songs</Link>
+    <div style={{display: 'flex', justifyContent: 'center', marginBottom: '70px'}}>
+        <Link style={style} to='discover'>Explore Trending Songs</Link>
     </div>
   )
 }
