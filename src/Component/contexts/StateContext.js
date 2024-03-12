@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 
 // const [songList, setSongList] = useState([]);
-const currentSongInfo = {play: false, songIndex: 0, songList: [], isAudioPlayerVisible: false}
+const currentSongInfo = {play: false, songIndex: 0, songList: [], allSongs: [], isAudioPlayerVisible: false, favBtn: false }
 
 const StateContext =  createContext({currentSongInfo});
 

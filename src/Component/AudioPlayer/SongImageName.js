@@ -5,9 +5,7 @@ import SetFavoriteSongButton from './SetFavoriteSongButton';
 const SongImageName = ({currentlyPlayingSong}) => {
     const [singers, setSingers] = useState();
     const {currentSongInfo, setCurrentSongInfo} = useContext(StateContext)
-    //console.log(currentSongInfo?.song?.thumbnail);
     const style = {
-        // width: '340px',
         padding: '0 8px',
         height: '100%',
         display: 'flex',
@@ -29,21 +27,19 @@ const SongImageName = ({currentlyPlayingSong}) => {
       paddingLeft: '10px'
     }
 
-    // setSingers()
-    // console.log(singers)
   return (
     <div style={style}>
         <img style={{float: 'left', width: '30px', height: '30px'}} src = {currentSongInfo?.songList[currentSongInfo.songIndex]?.thumbnail} />
         <div style={{ flexGrow: '1', lineHeight: '1.5em', alignItems: 'center'}}>
           <div style={{display: 'inline'}}>
             <span style={{fontSize: '12px', margin: '0px', paddingLeft: '10px', fontWeight: '600'}}>{currentSongInfo?.songList[currentSongInfo.songIndex]?.title}</span>
-            <span><SetFavoriteSongButton currentlyPlayingSong={currentlyPlayingSong}/></span>
+           
           </div>
-          <span style={styleSinger}> {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
+          {(currentSongInfo?.songList[currentSongInfo.songIndex]?.artist[0] != null) ? <span style={styleSinger}> {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
       return (ele?.name)
-    }).join(' || ')}</span>
+    }).join(' || ')}</span> : <div></div>}
         </div>
-      
+       <span style={{marginLeft: '5px'}}><SetFavoriteSongButton currentlyPlayingSong={currentlyPlayingSong}/></span>
     </div>
   )
 }

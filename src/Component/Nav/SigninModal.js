@@ -1,11 +1,11 @@
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Login from './Authentication/Authentication.js';
+import Authentication from './Authentication/Authentication.js';
 import React, { useEffect } from "react";
 
 
-const SigninModal = ({open, handleClose, condition})=> { 
+const SigninModal = ({open, handleClose, condition, setCondition})=> { 
     //const {open, handleClose, condition} = prop;
     const style = {
         position: 'absolute',
@@ -19,6 +19,14 @@ const SigninModal = ({open, handleClose, condition})=> {
         p: 4,
         borderRadius: '2px'
       };
+      const styleText = {
+        color: '#999',
+        fontWeight: '100',
+        lineHeight: '17.55px',
+        fontFamily: 'Inter, sans-serif',
+        fontStyle: 'normal',
+        fontSize: '12px'
+      }
 
     return (
         <Modal
@@ -35,8 +43,13 @@ const SigninModal = ({open, handleClose, condition})=> {
                     <div className="auth-method-separator">----------<span>or</span>----------</div>
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    <Login condition={condition}/>
+                    <Authentication condition={condition} handleClose={handleClose} />
                 </Typography>
+                <p style={styleText}>When registering, you agree that we may use your provided data for the registration and to send you notifications on our products and services. You can unsubscribe from notifications at any time in your settings. For additional info please refer to our Privacy Policy.</p>
+                {(condition === 'signup') ? <><span>Already Having Account?</span>
+                <span><button onClick={()=> {setCondition('signin')}}>Login</button></span></> : 
+                <><span>Don't have Account?</span>
+                <button onClick={()=> {setCondition('signup')}}>Create Account</button></>}
             </Box>
         </Modal>
     )

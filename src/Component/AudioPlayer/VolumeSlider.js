@@ -40,7 +40,6 @@ const VolumeSlider = ({audioRef}) => {
       const style={
         background: `linear-gradient(to right, #f50 ${volume}%, #ccc ${volume}%)`,
         width: '100px'
-        // webkitAppearance: 'slider-vertical'
       }
   return (
     <div style={{display: 'flex', justifyContent: 'spaceEvently'}}>

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { bearer_token, project_ID, app_Type, base_URL } from '../../constant';
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
+import UserStateContext from '../../contexts/UserStateContext';
+import Alert from 'react-bootstrap/Alert';
 
-const Login = ({condition})=> {
+const Authentication = ({condition, handleClose})=> {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isItFailed, setIsItFailed] = useState(false);
+    const [responseStatus, setResponseStatus] = useState('')
+    const {userInfo, setUserInfo} = useContext(UserStateContext)
+    const state = {...userInfo}
+    
+
+    //console.log(UserStateContext);
 
     const userName = (e)=> {
         setName(e.target.value)
@@ -17,7 +27,7 @@ const Login = ({condition})=> {
         setPassword(e.target.value)
     }
 
-    const  authenticationSingnup = async ()=> {
+    const  authenticationSignup = async ()=> {
         try{
             const header = {
                 'projectID': project_ID,
@@ -34,10 +44,19 @@ const Login = ({condition})=> {
                 headers: header,
                 body: JSON.stringify({...userDetail})   
             })
-            if(!response.ok) {
-                alert('Login Failed')
+                const data = await response.json();
+                console.log(data?.status)
+            if(data?.status === 'fail') {
+                setIsItFailed(true);
+                setResponseStatus(data?.message)
             } else {
-                alert('successfully Login')
+                console.log(await response.json())
+                localStorage.setItem('token', data?.token) 
+                state.isLoggedIn = true;
+                localStorage.setItem('isLoggedIn', true)
+                localStorage.setItem('name',data?.data?.name);
+                state.name = data?.data?.name;
+                setUserInfo(state)
             }
         } catch {
             alert('Not responding server')
@@ -59,14 +78,13 @@ const Login = ({condition})=> {
                 headers: header,
                 body: JSON.stringify({...userDetail})   
             })
-            // console.log( await response.json());
-            const data = await response.json();
-            localStorage.setItem('token', data.token);
-            if(!response.ok) {
-                alert('Login Failed')
-            } else {
-                alert('successfully Login')
-            }
+                const data = await response.json();
+                localStorage.setItem('token', data?.token) 
+                state.isLoggedIn = true
+                localStorage.setItem('isLoggedIn', true)
+                localStorage.setItem('name',data?.data?.name);
+                state.name = data?.data?.name
+                setUserInfo(state)
         } catch {
             alert('Not responding server')
         }
@@ -80,26 +98,61 @@ const Login = ({condition})=> {
         borderRadius: '4px',
     }
     const handleAuthentication = () => {
+        handleClose()
         if(condition === 'signup') {
-            authenticationSingnup();
+            authenticationSignup();
         } else {
             authenticationLogin();
         }
     }
 
     return (
-        <div>
-            <form>
-                {(condition === 'signup') && <input style={style} type='text' id='name' value={name} onChange={userName} placeholder='TYPE YOUR NAME' />}
-                <br />
-                <input style={style} type='email' id='name' value={email} onChange={userEmail} placeholder='TYPE YOUR EMAIL ADDRESS' />
-                <br />
-                <input style={style} type='password' id='password' value={password} onChange={userPassword} placeholder='TYPE YOUR PASSWORD'/>
-                <br />
-                <button style={{...style, 'backgroundColor': 'orange'}} type='button' onClick={handleAuthentication}>CONTINUE</button>
-            </form> 
-        </div>
-    )
+      <div>
+        <form>
+          {condition === "signup" && (
+            <input
+              style={style}
+              type="text"
+              id="name"
+              value={name}
+              onChange={userName}
+              placeholder="TYPE YOUR NAME"
+            />
+          )}
+          <br />
+          <input
+            style={style}
+            type="email"
+            id="name"
+            value={email}
+            onChange={userEmail}
+            placeholder="TYPE YOUR EMAIL ADDRESS"
+          />
+          <br />
+          <input
+            style={style}
+            type="password"
+            id="password"
+            value={password}
+            onChange={userPassword}
+            placeholder="TYPE YOUR PASSWORD"
+          />
+          <br />
+          <Link to="/discover" condition={isItFailed}>
+            <button
+              style={{ ...style, backgroundColor: "orange" }}
+              type="button"
+              onClick={handleAuthentication}
+            >
+              CONTINUE
+            </button>
+          </Link>
+          {isItFailed && <Alert >
+            {responseStatus}
+          </Alert>}
+        </form>
+      </div>
+    );
 }
 
-export default Login;
+export default Authentication;

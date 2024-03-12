@@ -18,13 +18,12 @@ const AudioPlayByAudioTag = ({audioRef, setDuration, progressbarRef, setCurrentT
   };
 
   const repeat = useCallback(() => {
-      const currentTimes = audioRef.current.currentTime;
-      //console.log(currentTimes)
+      const currentTimes = audioRef?.current?.currentTime;
       setCurrentTime(currentTimes);
       progressbarRef.current.value = currentTimes;
       progressbarRef.current.style.setProperty(
         '--range-progress',
-        `${(progressbarRef.current.value / duration) * 100}%`
+        `${(progressbarRef?.current?.value / duration) * 100}%`
       );
       playAnimationRef.current = requestAnimationFrame(repeat);
     }, [audioRef, duration, progressbarRef, setCurrentTime]);
@@ -32,18 +31,18 @@ const AudioPlayByAudioTag = ({audioRef, setDuration, progressbarRef, setCurrentT
   const songPlayPause = ()=> {
       if(currentSongInfo.play) {
           setButtonIcon(playBtnUrl);
-         // console.log(buttonIcon, currentSongInfo.play)
           audioRef.current.play()
           playAnimationRef.current = requestAnimationFrame(repeat);
       } else {
           setButtonIcon(PauseBtnUrl);
           audioRef.current.pause()
          cancelAnimationFrame(playAnimationRef.current);
-         //console.log(buttonIcon)
       }
   }
+  const lastThreeSong = new Array(3)
   useEffect (()=> {
       songPlayPause();
+      // const count
   }, [currentSongInfo.play, currentSongInfo?.songList[currentSongInfo?.songIndex], repeat])
 
   const styleBTN = {
@@ -58,15 +57,29 @@ const AudioPlayByAudioTag = ({audioRef, setDuration, progressbarRef, setCurrentT
     textShadow: 'none',
     color: 'transparent',
     backgroundColor: 'initial',
-    // backgroundImage: playBtnUrl
   }
-  //console.log(currentSongInfo?.songList[currentSongInfo?.songIndex])
+  const automaticSongChange = (btnStatus)=> {
+    if(btnStatus === 'next') {
+      if(!currentSongInfo.songList[currentSongInfo.songIndex+1]) {
+        setCurrentSongInfo({...currentSongInfo, songIndex: 0})
+      } else {
+        setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex + 1})
+      }
+    } else {
+      if(!currentSongInfo.songList[currentSongInfo.songIndex-1]) {
+        setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo?.songList?.length-1})
+      } else {
+        setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex - 1})
+      }      
+    }
+  }
+          
   return (
     <div>
-        <audio src={currentSongInfo?.songList[currentSongInfo?.songIndex]?.audio_url} ref={audioRef} onLoadedMetadata={onLoadedMetadata} onEnded={()=>{setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex + 1})}}/>
-        <button style={{...styleBTN, backgroundImage: previousBtnUrl}} onClick={()=> {setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex - 1})}}></button>
+        <audio src={currentSongInfo?.songList[currentSongInfo?.songIndex]?.audio_url} ref={audioRef} onLoadedMetadata={onLoadedMetadata} onEnded={()=> {automaticSongChange('next')}}/>
+        <button style={{...styleBTN, backgroundImage: previousBtnUrl}} onClick={()=> {automaticSongChange('prev')}}></button>
         <button style={{...styleBTN, backgroundImage: buttonIcon }} onClick={()=> {setCurrentSongInfo({...currentSongInfo, play: !currentSongInfo.play})}}></button>
-        <button style={{...styleBTN, backgroundImage: forwordBtnUrl}} onClick={()=> {setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex + 1})}}></button>
+        <button style={{...styleBTN, backgroundImage: forwordBtnUrl}} onClick={()=> {automaticSongChange('next')}}></button>
     </div>
   )
 }

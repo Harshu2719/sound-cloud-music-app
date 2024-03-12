@@ -1,34 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import SongList from '../SongsFromAPI/SongList';
+import { Link } from 'react-router-dom';
 
 
 const SearchBarButton = ({songNameTitle})=> {
-    const [searchedSong, setSearchedSong] = useState([]);
-    const [isSongFound, setIsSongFound] = useState(true);
-    
-    const  searchSong = async ()=> {
-        try{
-            const header = {
-              'projectID': "f104bi07c490",
-              "Content-Type": "application/json"
-            };
-            const response = await fetch(`https://academics.newtonschool.co/api/v1/music/song?search={"title":"${songNameTitle}"}`, {
-                method: 'GET', 
-                headers: header,
-            })
-            const data = await response.json();
-            setSearchedSong(data?.data);
-            if(response.ok) {
-              alert("There is no problem")
-                setIsSongFound(true)
-            } else{
-                setIsSongFound(false);
-            }
-        } catch {
-            alert('Not responding server')
-        }
-    }
-    
+    //console.log(songNameTitle)
     const styleBtn = {
         height: '15px',
         // padding: '16px',
@@ -49,8 +25,8 @@ const SearchBarButton = ({songNameTitle})=> {
 
     return(
     <>
-        <button style={styleBtn} onClick={searchSong}></button>
-        {/* {isSongFound ? <SongList songs={searchedSong} /> : <h3>No Song Found</h3>} */}
+       <Link to={'/results/title/'+ songNameTitle}> <button disabled={!songNameTitle} style={styleBtn}></button></Link>
+        {/*  */}
     </>
     )
 }

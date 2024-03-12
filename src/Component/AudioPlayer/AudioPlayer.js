@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { VscDebugPause } from "react-icons/vsc";
-import { VscDebugStart } from "react-icons/vsc";
+import React, { useState,useRef, useContext } from 'react';
 import AudioPlayByAudioTag from './AudioPlayByAudioTag.js';
 import SongProgressbar from './SongProgressbar.js';
 import VolumeSlider from './VolumeSlider.js';
-import SetFavoriteSongButton from './SetFavoriteSongButton.js';
 import StateContext from '../contexts/StateContext.js';
 import SongImageName from './SongImageName.js';
 
@@ -38,7 +35,8 @@ const AudioPlayer = () => {
     padding: '10px',
     backgroundColor: '#f2f2f2',
     borderTop: '1px solid #cecece',
-    marginBottom: '0px'
+    marginBottom: '0px',
+    zIndex: '10'
 
 }
   return (

@@ -21,15 +21,26 @@ import Library from './Header/Library.js';
 import Discover from './Discover.js';
 import Profile from './Header/Profile.js';
 import LandingPageComponent from './LandingPageComponent.js';
+import DiscoverSongTypes from './DiscoverSongTypes.js';
+import SongResultsComponent from './SongResultsComponent.js';
+import UserStateContext from './contexts/UserStateContext.js'
+import TrendingHits from './TrendingHits.js';
+import HeaderAuthenticationBtn from './Header/HeaderAuthenticationBtn.js';
+import Authentication from './Nav/Authentication/Authentication.js';
 
 const App = ()=> {
-    const [currentSongInfo, setCurrentSongInfo] = useState({play: false, songIndex: 0, songList: [], isAudioPlayerVisible: false});
+    const [currentSongInfo, setCurrentSongInfo] = useState({play: false, songIndex: 0, songList: [], allSongs: [], isAudioPlayerVisible: false, favBtn: false});
+    const [userInfo, setUserInfo] = useState({isLoggedIn: localStorage.getItem('isLoggedIn'), name: localStorage.getItem('name'), email: ''})
     return (
         <>
-            <StateContext.Provider value={{currentSongInfo: currentSongInfo, setCurrentSongInfo: setCurrentSongInfo}}>
-                <Outlet/>
-                {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
-            </StateContext.Provider>
+            <UserStateContext.Provider value={{userInfo: userInfo, setUserInfo: setUserInfo}}>
+                <StateContext.Provider value={{currentSongInfo: currentSongInfo, setCurrentSongInfo: setCurrentSongInfo}}>
+                
+                    <Outlet/>
+                    {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
+                    
+                </StateContext.Provider>
+            </ UserStateContext.Provider >
         </>
     )
 }
@@ -47,6 +58,10 @@ const router = createBrowserRouter([
                 element: <Discover />,
                 children: [
                     {
+                        path: '',
+                        element: <DiscoverSongTypes />
+                    },
+                    {
                         path: 'favorites',
                         element: <FavoriteSongs />
                     },
@@ -58,12 +73,31 @@ const router = createBrowserRouter([
                         path: 'profile',
                         element: <Profile />
                     },
+                    
+                    {
+                        path: 'trendinghits',
+                        element: <TrendingHits />
+                    }
+                    
+                   
                 ]
             },
             {
                 path: '/',
                 element: <LandingPageComponent />
+            }, 
+            {
+                path: 'results/:key?/:value?',
+                element: <SongResultsComponent />
             },
+
+            //           /harshit/:key/:value
+            //           /harshit/mood/romatic
+            // {
+            //     path: 'discover',
+            //     element: <DiscoverSongTypes />
+            // }
+           
 
             // {
             //     path: '/search',

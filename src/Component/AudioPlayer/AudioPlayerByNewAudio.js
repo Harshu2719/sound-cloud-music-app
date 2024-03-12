@@ -7,13 +7,11 @@ const AudioPlayerByNewAudio = ({setPlay, play, song, setIndex, index}) => {
     const [buttonIcon, setButtonIcon] = useState(VscDebugStart);
 
 
-    //console.log(player.duration)
     useEffect(()=> {
         player.setAttribute('src', song?.audio_url);
     }, [song])
 
   const songPlayPause = ()=> {
-    //console.log(play)
     if(play) {
         setButtonIcon(VscDebugPause);
         player.play();

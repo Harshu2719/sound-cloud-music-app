@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import SigninModal from '../Nav/SigninModal';
 import Logo from './Logo';
 import Home from './Home';
@@ -6,8 +6,11 @@ import Favorites from './Favorites';
 import Library from './Library';
 import SearchInput from '../SearchSong/SearchInput';
 import HeaderAuthenticationBtn from './HeaderAuthenticationBtn';
+import LogoutButton from '../Nav/Authentication/LogoutButton';
+
 
 const Header = () => {
+
 
   const style = {
     outline: '0',
@@ -43,7 +46,7 @@ const Header = () => {
   }
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
+    <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#333'}}>
         <div style={styleBox2}>
           <div>
             <Logo />
@@ -52,15 +55,14 @@ const Header = () => {
             <ul style={styleNav}>
               <Home style={style}/>
               <Favorites style={style}/>
-              <Library style={style}/>
+              {/* <Library style={style}/> */}
             </ul>
           </nav>
           <div style={{flex: '1'}}>
             <SearchInput />
           </div>  
-          <HeaderAuthenticationBtn />
-            {/* <Profile /> */}
-        </div>
+           { <HeaderAuthenticationBtn /> }
+          </div>
     </div>
   )
 }

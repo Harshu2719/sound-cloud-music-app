@@ -4,35 +4,30 @@ import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import createContext from 'react';
 import SongListContext from '../contexts/StateContext.js';
 import StateContext from '../contexts/StateContext.js';
+import Shimmer from './Shimmer.js';
 
 const SongList = ({songs}) => {
   // const [play, setPlay] = useState(false);
-  const [currentlyPlayingSong, setCurrentlyPlayingSong] = useState();
-  const [audioPlayerVisibility, setAudioPlayerVisibility] = useState(false);
- 
+
 
   const {currentSongInfo, setCurrentSongInfo} = useContext(StateContext);
-  const styleHeading = {
-    fontSize: '24px',
-    textAlign: 'center',
-    paddingTop: '20px',
-    marginBottom: '30px',
-    fontFamily: 'Inter,sans-serif',
-    fontWeight: 'bolder',
-    color: '#333',
- }
-
+  
+  // const setSongList = ()=> {
+  //   // setTimeout(() => {
+  //     setCurrentSongInfo({...currentSongInfo, songList:songs})
+  //   // }, 10);
+  // }
   return (
     <>
-      <div style={{width: '1240px'}}>
-        <div style={styleHeading}>Hear what’s trending for free in the SoundCloud community</div>
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>{songs?.map((song, index) => {  
+      <div style={{width: '1240px'}}>       
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {songs?.length === 0 ? <Shimmer /> : 
+          songs?.map((song, index) => {  
           return (  
             <Song index={index} 
-            song={song} 
-            currentlyPlayingSong={songs[currentSongInfo.songIndex]} 
-            setCurrentlyPlayingSong={setCurrentlyPlayingSong} 
-            setAudioPlayerVisibility={setAudioPlayerVisibility}/>  
+            song={song}
+            songs={songs}  
+           />  
           )})
         }</div>
       </div>

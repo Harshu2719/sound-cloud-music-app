@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import SigninModal from "./SigninModal";
+import LogoutButton from "./Authentication/LogoutButton";
+import UserStateContext from "../contexts/UserStateContext";
 
 const HeroSection = () => {
   const [open, setOpen] = React.useState(false);
   const [condition, setCondition] = React.useState('')
+  const {userInfo} = useContext(UserStateContext);
+  //console.log(userInfo.isLoggedIn);
 
   const handleOpen = (condi) => {
     setCondition(condi);
@@ -45,13 +49,16 @@ const HeroSection = () => {
       </div> */}
         <h1 className="p-heading">SoundCloud</h1>
         <ul className="c1-box">
+          {userInfo.isLoggedIn ? <LogoutButton /> :
+          <>
           <Button style={Stylebtn} onClick={()=>{handleOpen('signin')}}>Signin</Button>
           <Button style={{...Stylebtn, backgroundColor: '#f50', borderColor: '#f50'}} onClick={()=>handleOpen('signup')}>Create Account</Button>
           <Button style={Stylebtn} onClick={handleOpen}>For Artist</Button>
+          </>  }
         </ul>
       </div> 
       
-      <SigninModal open={open} handleClose={handleClose} condition={condition}/>
+      {<SigninModal open={open} handleClose={handleClose} condition={condition} setCondition={setCondition}/> }
     </>
   );
 };
