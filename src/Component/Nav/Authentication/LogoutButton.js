@@ -30,7 +30,7 @@ const LogoutButton = () => {
         textAlign: 'center',
         width: '104px',
         borderLeft: '1px solid #111',
-        fontFamily: 'Inter sans-serif',
+        fontFamily: 'sans-serif',
         fontWeight: '100',
         lineHeight: '1.5',
         textDecoration: 'none',
@@ -38,7 +38,8 @@ const LogoutButton = () => {
         borderTop: '1px',
         textDecoration: 'none',
         paddingLeft: '5px',
-        paddingRight: '5px'
+        paddingRight: '5px',
+        borderRight: 'none'
     }
 
   return (

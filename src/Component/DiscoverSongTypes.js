@@ -39,7 +39,7 @@ const DiscoverSongTypes = () => {
         let romanticSongs = []
         let excitedSongs = []
         let trendings = []
-        allSong.forEach((song, index) => {
+        allSong?.forEach((song, index) => {
             //console.log(song?.featured)
             if(song?.mood === 'happy') {
              happySongs = [...happySongs, song]
@@ -69,6 +69,9 @@ const DiscoverSongTypes = () => {
     const styleHits = {
       height: '255px', 
       overflow: 'hidden'
+    }
+    const styleHeading = {
+      fontFaimly: 'sans-serif',
     }
   return (
     <>

@@ -83,7 +83,7 @@ const Song = ({index, song, songs}) => {
       lineHeight: '1.5',
       display: 'flex',
       flexWrap: 'wrap',
-      fontWeight: '100'
+      fontWeight: '200'
   }
   const onClickFunction = (e)=> {
     console.log(e);

@@ -39,7 +39,7 @@ const SliderComponent =({sliderSongs})=>{
          <div className="main-slider-contianer">
              <button style={{width: '32px', height: '32px'}} className="slider-icon left" onClick={()=>{handlescrollLeft()}}> {<SlArrowLeft />}</button>
              <div className="slider" style={{scrollLeft:scrollcard}} ref={containerRef}>  
-             {sliderSongs?.length === 0 ? <div style={{display: 'flex', flexWrap: 'wrap'}}><Shimmer /></div> :
+             {sliderSongs?.length === 0 ? <div style={{display: 'flex', flexWrap: 'wrap', width: '1240px'}}><Shimmer /></div> :
              sliderSongs?.map((hits, index) => {  
                 return (  
                     <div style={sliderCard}>

@@ -6,15 +6,15 @@ const VolumeSlider = ({audioRef}) => {
     const [volume, setVolume] = useState(70);
     const [volumeBtn, setVolumeBtn] = useState(VscUnmute);
     const [isHovering, setIsHovering] = useState(false);
-    const [isClicked, setIsClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(true);
 
-    const handleMouseOver = () => {
-      setIsHovering(true);
-    };
+    // const handleMouseOver = () => {
+    //   setIsHovering(true);
+    // };
   
-    const handleMouseOut = () => {
-      setIsHovering(false);
-    };
+    // const handleMouseOut = () => {
+    //   setIsHovering(false);
+    // };
     useEffect(()=>{setVolume(50)}, [])
 
     useEffect(() => {
@@ -27,15 +27,20 @@ const VolumeSlider = ({audioRef}) => {
         }
       }, [volume, audioRef]);
 
-      useEffect(()=> {
+      // useEffect(()=> {
+        
+      //   console.log('###############################')
+      // }, [isClicked])
+      const handleMuteUnmute = ()=> {
         if(isClicked) {
           setVolumeBtn(VscMute)
           setVolume(0);
         } else {
           setVolumeBtn(VscUnmute)
-          setVolume(audioRef.current.volume)
+          setVolume(50)
         }
-      }, [isClicked])
+        setIsClicked(!isClicked)
+      } 
 
       const style={
         background: `linear-gradient(to right, #f50 ${volume}%, #ccc ${volume}%)`,
@@ -43,7 +48,7 @@ const VolumeSlider = ({audioRef}) => {
       }
   return (
     <div style={{display: 'flex', justifyContent: 'spaceEvently'}}>
-        <div ><button style={{width: '30px', border: 'none'}} onClick={()=>{setIsClicked(!isClicked)}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >{volumeBtn}</button></div>
+        <div ><button style={{width: '30px', border: 'none'}} onClick={()=>{handleMuteUnmute()}} >{volumeBtn}</button></div>
         {<input type="range" min={0} max={100} value={volume} onChange={(e) => setVolume(e.target.value)} style={style} />}
     </div>
   )

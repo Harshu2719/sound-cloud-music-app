@@ -62,10 +62,6 @@ const router = createBrowserRouter([
                         element: <DiscoverSongTypes />
                     },
                     {
-                        path: 'favorites',
-                        element: <FavoriteSongs />
-                    },
-                    {
                         path: 'library',
                         element: <Library />
                     },
@@ -89,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: 'results/:key?/:value?',
                 element: <SongResultsComponent />
+            },
+            {
+                path: 'favorites',
+                element: <FavoriteSongs />
             },
 
             //           /harshit/:key/:value

@@ -35,9 +35,11 @@ const SongImageName = ({currentlyPlayingSong}) => {
             <span style={{fontSize: '12px', margin: '0px', paddingLeft: '10px', fontWeight: '600'}}>{currentSongInfo?.songList[currentSongInfo.songIndex]?.title}</span>
            
           </div>
-          {(currentSongInfo?.songList[currentSongInfo.songIndex]?.artist[0] != null) ? <span style={styleSinger}> {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
-      return (ele?.name)
-    }).join(' || ')}</span> : <div></div>}
+          {(currentSongInfo?.songList[currentSongInfo.songIndex]?.artist[0].name != null) ? 
+            <span style={styleSinger}> {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
+              return (ele?.name)
+            }).join(' || ')}</span> : <div></div>
+          }
         </div>
        <span style={{marginLeft: '5px'}}><SetFavoriteSongButton currentlyPlayingSong={currentlyPlayingSong}/></span>
     </div>

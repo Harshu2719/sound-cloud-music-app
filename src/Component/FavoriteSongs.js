@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import SongList from './SongsFromAPI/SongList';
 import { Link } from 'react-router-dom';
 import StateContext from './contexts/StateContext';
+import Header from './Header/Header';
 
 const FavoriteSongs = () => {
     const [favoriteSongs, setFavoriteSongs] = useState([]);
@@ -44,29 +45,32 @@ const FavoriteSongs = () => {
     }
     console.log(localStorage.getItem('token'));
     return (
-        <div style={{width: '1240px', margin: 'auto', paddingTop: '25px'}}>
-            {(localStorage.getItem('token') === null) ? (<>
-                <div style={{width: '1240px', marginLeft: 'auto'}}>
-                    <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
-                        <div style={style}></div>
-                        <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>Please Login....</h3>   
-                    </div>
-                </div></>) :
-            (favoriteSongs?.length === 0) ? (<>
-                <div style={{width: '1240px', marginLeft: 'auto'}}>
-                    <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
-                        <div style={style}></div>
-                        <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>You have no likes yet</h3>
-                        <Link style={styleLink} to='/discover'>Browse trending playlists</Link>
-                    </div>
-                </div></>
-            ):
-            (<>
-                <h2>These are favorite songs</h2>
-                <SongList songs={favoriteSongs}  />
-            </>)
-             }
-        </div>
+        <>
+            <Header />
+            <div style={{width: '1240px', margin: 'auto', paddingTop: '25px'}}>
+                {(localStorage.getItem('token') === null) ? (<>
+                    <div style={{width: '1240px', marginLeft: 'auto'}}>
+                        <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
+                            <div style={style}></div>
+                            <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>Please Login....</h3>   
+                        </div>
+                    </div></>) :
+                (favoriteSongs?.length === 0) ? (<>
+                    <div style={{width: '1240px', marginLeft: 'auto'}}>
+                        <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
+                            <div style={style}></div>
+                            <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>You have no likes yet</h3>
+                            <Link style={styleLink} to='/discover'>Browse trending playlists</Link>
+                        </div>
+                    </div></>
+                ):
+                (<>
+                    <h2>These are favorite songs</h2>
+                    <SongList songs={favoriteSongs}  />
+                </>)
+                }
+            </div>
+        </>
     )
 }
 

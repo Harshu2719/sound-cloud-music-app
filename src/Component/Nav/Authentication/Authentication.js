@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { bearer_token, project_ID, app_Type, base_URL } from '../../constant';
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import UserStateContext from '../../contexts/UserStateContext';
-import Alert from 'react-bootstrap/Alert';
+import Alert from '@mui/material/Alert';
 
 const Authentication = ({condition, handleClose})=> {
     const [name, setName] = useState('')
@@ -11,8 +11,12 @@ const Authentication = ({condition, handleClose})=> {
     const [password, setPassword] = useState('');
     const [isItFailed, setIsItFailed] = useState(false);
     const [responseStatus, setResponseStatus] = useState('')
+    const [responseMessage, setResponseMessage] = useState('')
     const {userInfo, setUserInfo} = useContext(UserStateContext)
     const state = {...userInfo}
+    const navigate = useNavigate();
+
+  
     
 
     //console.log(UserStateContext);
@@ -47,16 +51,18 @@ const Authentication = ({condition, handleClose})=> {
                 const data = await response.json();
                 console.log(data?.status)
             if(data?.status === 'fail') {
-                setIsItFailed(true);
-                setResponseStatus(data?.message)
+                setIsItFailed(true)
+                setResponseMessage(data?.message)
+              
             } else {
-                console.log(await response.json())
                 localStorage.setItem('token', data?.token) 
                 state.isLoggedIn = true;
                 localStorage.setItem('isLoggedIn', true)
-                localStorage.setItem('name',data?.data?.name);
-                state.name = data?.data?.name;
+                localStorage.setItem('name',data?.data?.user?.name);
+                state.name = data?.data?.user?.name;
                 setUserInfo(state)
+                handleClose()
+                navigate('/discover')
             }
         } catch {
             alert('Not responding server')
@@ -79,16 +85,25 @@ const Authentication = ({condition, handleClose})=> {
                 body: JSON.stringify({...userDetail})   
             })
                 const data = await response.json();
-                localStorage.setItem('token', data?.token) 
-                state.isLoggedIn = true
-                localStorage.setItem('isLoggedIn', true)
-                localStorage.setItem('name',data?.data?.name);
-                state.name = data?.data?.name
-                setUserInfo(state)
+                if(data?.status === 'fail') {
+                    setIsItFailed(true)
+                    setResponseMessage(data?.message)
+                  
+                } else {
+                    localStorage.setItem('token', data?.token) 
+                    state.isLoggedIn = true;
+                    localStorage.setItem('isLoggedIn', true)
+                    localStorage.setItem('name',data?.data?.name);
+                    state.name = data?.data?.name;
+                    setUserInfo(state)
+                    handleClose()
+                    navigate('/discover')
+                }
         } catch {
             alert('Not responding server')
         }
-    }
+    }  
+        
 
     const style = {
         border: '1px solid black',
@@ -98,7 +113,6 @@ const Authentication = ({condition, handleClose})=> {
         borderRadius: '4px',
     }
     const handleAuthentication = () => {
-        handleClose()
         if(condition === 'signup') {
             authenticationSignup();
         } else {
@@ -138,7 +152,6 @@ const Authentication = ({condition, handleClose})=> {
             placeholder="TYPE YOUR PASSWORD"
           />
           <br />
-          <Link to="/discover" condition={isItFailed}>
             <button
               style={{ ...style, backgroundColor: "orange" }}
               type="button"
@@ -146,11 +159,8 @@ const Authentication = ({condition, handleClose})=> {
             >
               CONTINUE
             </button>
-          </Link>
-          {isItFailed && <Alert >
-            {responseStatus}
-          </Alert>}
         </form>
+        {isItFailed && <Alert severity="error">{responseMessage}</Alert>}
       </div>
     );
 }

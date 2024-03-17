@@ -24,7 +24,7 @@ const Header = () => {
     textAlign: 'center',
     width: '104px',
     borderRight: '1px solid #111',
-    fontFamily: 'Inter sans-serif',
+    fontFamily: 'sans-serif',
     fontWeight: '100',
     // fontSize: '14px',
     lineHeight: '1.5',

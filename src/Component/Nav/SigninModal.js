@@ -27,7 +27,11 @@ const SigninModal = ({open, handleClose, condition, setCondition})=> {
         fontStyle: 'normal',
         fontSize: '12px'
       }
-
+      const styleBtn = {
+        border: 'none', 
+        color: 'blue', 
+        backgroundColor: 'white'
+      }
     return (
         <Modal
             open={open}
@@ -47,9 +51,9 @@ const SigninModal = ({open, handleClose, condition, setCondition})=> {
                 </Typography>
                 <p style={styleText}>When registering, you agree that we may use your provided data for the registration and to send you notifications on our products and services. You can unsubscribe from notifications at any time in your settings. For additional info please refer to our Privacy Policy.</p>
                 {(condition === 'signup') ? <><span>Already Having Account?</span>
-                <span><button onClick={()=> {setCondition('signin')}}>Login</button></span></> : 
+                <span><button style={styleBtn} onClick={()=> {setCondition('signin')}}>Login</button></span></> : 
                 <><span>Don't have Account?</span>
-                <button onClick={()=> {setCondition('signup')}}>Create Account</button></>}
+                <button style={styleBtn} onClick={()=> {setCondition('signup')}}>create account</button></>}
             </Box>
         </Modal>
     )
