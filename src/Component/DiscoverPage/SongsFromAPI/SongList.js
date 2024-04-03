@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Song from './Song.js';
-import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
-import createContext from 'react';
-import SongListContext from '../contexts/StateContext.js';
-import StateContext from '../contexts/StateContext.js';
+import StateContext from '../../contexts/StateContext';
 import Shimmer from './Shimmer.js';
 
 const SongList = ({songs}) => {

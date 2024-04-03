@@ -1,6 +1,6 @@
 import React from 'react';
-import HeroSection from './Nav/HeroSection';
-import BasicCard from './SongsFromAPI/body';
+import HeroSection from './HeroSection';
+import LandingPageSong from './LandingPageSong';
 import ExploreTrendingSongs from './ExploreTrendingSongsBtn';
 import LandingPageSearchInput from './LandingPageSearchInput';
 
@@ -10,7 +10,7 @@ const LandingPageComponent = () => {
       <div style={{width: '1240px', margin: 'auto' }}>
         <HeroSection />
         <LandingPageSearchInput />
-        <BasicCard />
+        <LandingPageSong />
         <ExploreTrendingSongs />
       </div>  
     </>

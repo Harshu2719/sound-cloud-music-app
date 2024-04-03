@@ -1,6 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
-import SongList from './SongsFromAPI/SongList';
+import { useRef, useState } from 'react';
 import Song from './SongsFromAPI/Song';
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";

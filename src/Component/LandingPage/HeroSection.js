@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Button from "@mui/material/Button";
-import SigninModal from "./SigninModal";
-import LogoutButton from "./Authentication/LogoutButton";
+import SigninModal from "../Nav/SigninModal";
+import LogoutButton from "../Nav/Authentication/LogoutButton";
 import UserStateContext from "../contexts/UserStateContext";
 
 const HeroSection = () => {

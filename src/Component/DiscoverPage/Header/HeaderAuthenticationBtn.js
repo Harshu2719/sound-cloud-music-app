@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import SigninModal from "../Nav/SigninModal";
-import UserStateContext from "../contexts/UserStateContext";
 import Logo from "./Logo";
-import LogoutButton from "../Nav/Authentication/LogoutButton";
+import LogoutButton from "../../Nav/Authentication/LogoutButton";
+import UserStateContext from "../../contexts/UserStateContext";
+import SigninModal from "../../Nav/SigninModal";
 
 const HeaderAuthenticationBtn = () => {
   const [open, setOpen] = React.useState(false);

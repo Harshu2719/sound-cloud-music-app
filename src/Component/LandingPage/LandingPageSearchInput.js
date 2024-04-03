@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import SearchBarButton from './SearchSong/SearchBarButton'
+import SearchBarButton from '../DiscoverPage/SearchSong/SearchBarButton';
+
 
 const LandingPageSearchInput = () => {
     const [songNameTitle, setSongNameTitle] = useState();

@@ -1,12 +1,9 @@
 import  React, { useContext, useEffect, useState } from 'react';
-import {base_URL} from '../constant.js';
-import SongList from './SongList.js';
-import NewReleaseSong from './NewReleaseSong.js';
-import ReactCardSlider from 'react-card-slider-component';
 import StateContext from '../contexts/StateContext.js';
+import SongList from '../DiscoverPage/SongsFromAPI/SongList.js';
 
 
-const BasicCard = () => {
+const LandingPageSong = () => {
   const [songs, setSongs] = useState([]);  
   const [topSong, setTopSong] = useState([]);
 
@@ -77,4 +74,4 @@ const BasicCard = () => {
   )
 }
 
-export default BasicCard;
+export default LandingPageSong;

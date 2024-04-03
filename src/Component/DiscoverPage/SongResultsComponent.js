@@ -14,9 +14,6 @@ const SongResultsComponent = () => {
       } else {
         endUrl = `search={"${key}":"${value}"}`
       }
-
-    console.log(key, value)
-    //console.log(songNameTitle)
     const  searchSong = async ()=> {
         try{
             const header = {

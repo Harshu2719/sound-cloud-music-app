@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { VscDebugPause } from "react-icons/vsc";
-import { VscDebugStart } from "react-icons/vsc";
-import StateContext from '../contexts/StateContext';
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
-import { SongCardPauseButtonIcon, SongCardPlayButtonIcon } from '../constant';
 import { GiPauseButton } from "react-icons/gi";
 import { GiPlayButton } from "react-icons/gi";
+import StateContext from '../../contexts/StateContext';
 
 
 const Song = ({index, song, songs}) => {

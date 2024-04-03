@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import stateContextSongMoods from './contexts/UserStateContext';
-import SongImageName from './AudioPlayer/SongImageName';
-import SongList from './SongsFromAPI/SongList';
+import stateContextSongMoods from '../contexts/UserStateContext';
+import SongList from '../DiscoverPage/SongsFromAPI/SongList';
+
 
 const TrendingHits = () => {
     const {songMoods, setSongMoods} = useContext(stateContextSongMoods)

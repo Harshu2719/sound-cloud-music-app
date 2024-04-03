@@ -10,7 +10,6 @@ const Authentication = ({condition, handleClose})=> {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isItFailed, setIsItFailed] = useState(false);
-    const [responseStatus, setResponseStatus] = useState('')
     const [responseMessage, setResponseMessage] = useState('')
     const {userInfo, setUserInfo} = useContext(UserStateContext)
     const state = {...userInfo}
@@ -137,7 +136,7 @@ const Authentication = ({condition, handleClose})=> {
           <input
             style={style}
             type="email"
-            id="name"
+            id="email"
             value={email}
             onChange={userEmail}
             placeholder="TYPE YOUR EMAIL ADDRESS"

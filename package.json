@@ -4,7 +4,7 @@
   "description": "Newton School Project",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build --no-source-maps --public-url /soundcloud index.html",
     "test": "jest"
   },
   "author": "Harshit Verma",

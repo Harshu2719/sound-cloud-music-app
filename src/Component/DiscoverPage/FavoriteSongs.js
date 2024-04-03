@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
-import SongList from './SongsFromAPI/SongList';
 import { Link } from 'react-router-dom';
-import StateContext from './contexts/StateContext';
+import StateContext from '../contexts/StateContext';
 import Header from './Header/Header';
+import SongList from './SongsFromAPI/SongList';
 
 const FavoriteSongs = () => {
     const [favoriteSongs, setFavoriteSongs] = useState([]);
@@ -43,7 +43,7 @@ const FavoriteSongs = () => {
         textDecoration: 'none',
         // paddingLeft: 
     }
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
     return (
         <>
             <Header />

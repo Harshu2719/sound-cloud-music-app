@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react'
-import SigninModal from '../Nav/SigninModal';
+import React, {  } from 'react'
 import Logo from './Logo';
 import Home from './Home';
 import Favorites from './Favorites';
-import Library from './Library';
 import SearchInput from '../SearchSong/SearchInput';
 import HeaderAuthenticationBtn from './HeaderAuthenticationBtn';
-import LogoutButton from '../Nav/Authentication/LogoutButton';
 
 
 const Header = () => {
