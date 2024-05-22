@@ -42,9 +42,9 @@ const SongResultsComponent = () => {
     }, [value])
 
     const style = {
-        width: '1240px', 
+        width: '72%', 
         margin: 'auto',
-        paddingTop: '25px'
+        paddingTop: '60px'
     }
   return (
     <>
@@ -52,14 +52,14 @@ const SongResultsComponent = () => {
       <div style={style}>
         {(key === 'mood') ? (
           <>
-            <h2>All {value} Songs</h2> 
-            <div style={style}>
+            <h2 style={{fontSize: '24px', marginLeft: '65px', width: '100%'}}>All {value} Songs</h2> 
+            <div style={{margin: 'auto', paddingTop: '10px'}}>
               <SongList songs={searchedSong} />
             </div>
           </>
           ): (
-          <div style={style}>
-            <h2> Search results for '{value}'</h2>
+          <div style={{width: '100%', margin: 'auto', paddingTop: '10px'}}>
+            <h2 style={{fontSize: '24px'}}> Search results for '{value}'</h2>
             {isSongFound ? <SongList songs={searchedSong} /> : <h3>No Song Found</h3>}
           </div>
         )}

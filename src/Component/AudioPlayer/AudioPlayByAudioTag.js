@@ -18,32 +18,32 @@ const AudioPlayByAudioTag = ({audioRef, setDuration, progressbarRef, setCurrentT
   };
 
   const repeat = useCallback(() => {
-      const currentTimes = audioRef?.current?.currentTime;
+      const currentTimes = audioRef.current?.currentTime;
       setCurrentTime(currentTimes);
       progressbarRef.current.value = currentTimes;
-      progressbarRef.current.style.setProperty(
+      progressbarRef.current?.style.setProperty(
         '--range-progress',
-        `${(progressbarRef?.current?.value / duration) * 100}%`
+        `${(progressbarRef.current?.value / duration) * 100}%`
       );
       playAnimationRef.current = requestAnimationFrame(repeat);
     }, [audioRef, duration, progressbarRef, setCurrentTime]);
   
   const songPlayPause = ()=> {
-      if(currentSongInfo.play) {
+      if(currentSongInfo?.play) {
           setButtonIcon(playBtnUrl);
-          audioRef.current.play()
+          audioRef.current?.play()
           playAnimationRef.current = requestAnimationFrame(repeat);
       } else {
           setButtonIcon(PauseBtnUrl);
-          audioRef.current.pause()
-         cancelAnimationFrame(playAnimationRef.current);
+          audioRef.current?.pause()
+         cancelAnimationFrame(playAnimationRef?.current);
       }
   }
   const lastThreeSong = new Array(3)
   useEffect (()=> {
       songPlayPause();
       // const count
-  }, [currentSongInfo.play, currentSongInfo?.songList[currentSongInfo?.songIndex], repeat])
+  }, [currentSongInfo?.play, currentSongInfo?.songList[currentSongInfo?.songIndex], repeat])
 
   const styleBTN = {
     backgroundPosition: '40%',
@@ -63,10 +63,10 @@ const AudioPlayByAudioTag = ({audioRef, setDuration, progressbarRef, setCurrentT
       if(!currentSongInfo.songList[currentSongInfo.songIndex+1]) {
         setCurrentSongInfo({...currentSongInfo, songIndex: 0})
       } else {
-        setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex + 1})
+        setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo?.songIndex + 1})
       }
     } else {
-      if(!currentSongInfo.songList[currentSongInfo.songIndex-1]) {
+      if(!currentSongInfo?.songList[currentSongInfo?.songIndex-1]) {
         setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo?.songList?.length-1})
       } else {
         setCurrentSongInfo({...currentSongInfo, songIndex: currentSongInfo.songIndex - 1})

@@ -10,28 +10,39 @@ import FavoriteSongs from './DiscoverPage/FavoriteSongs.js';
 import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 import StateContext from './contexts/StateContext.js';
 import AudioPlayer from './AudioPlayer/AudioPlayer.js';
-import Library from './DiscoverPage/Header/Library.js';
 import Discover from './DiscoverPage/Discover.js';
-import Profile from './DiscoverPage/Header/Profile.js';
-import LandingPageComponent from './LandingPage/LandingPageComponent.js';
+import LandingPageComponent from './LandingPage/LandingPageComponents/LandingPageComponent.js';
 import DiscoverSongTypes from './DiscoverPage/DiscoverSongTypes.js';
 import UserStateContext from './contexts/UserStateContext.js'
 import TrendingHits from './UnUsedComponent/TrendingHits.js';
 import SongResultsComponent from './DiscoverPage/SongResultsComponent.js';
+import LibraryButton from './DiscoverPage/Header/LibraryButton.js';
+import ProfileButton from './DiscoverPage/Header/ProfileButton.js';
+import HistorySongContext from './contexts/HistoryContext.js';
+import CommingSoonComponent from './DiscoverPage/CommingSoonComponent.js';
+import ViewHistorySongComponent from './DiscoverPage/ViewHistorySongComponent.js';
 
 const App = ()=> {
-    const [currentSongInfo, setCurrentSongInfo] = useState({play: false, songIndex: 0, songList: [], allSongs: [], isAudioPlayerVisible: false, favBtn: false});
+    const [currentSongInfo, setCurrentSongInfo] = useState({play: false, songIndex: 0, songList: [], allSongs: [], isAudioPlayerVisible: false, favBtn: false, recordHistory: true});
     const [userInfo, setUserInfo] = useState({isLoggedIn: localStorage.getItem('isLoggedIn'), name: localStorage.getItem('name'), email: ''})
+    const [historySong, setHistorySong] = useState(JSON.parse(localStorage.getItem('historySong')) || {historySongList: [], songIndex: 0});
+    const historySongUpdate = (historySongObect)=> {
+        localStorage.setItem('historySong', JSON.stringify(historySongObect))
+        setHistorySong(historySongObect);
+    }
+   
     return (
         <>
-            <UserStateContext.Provider value={{userInfo: userInfo, setUserInfo: setUserInfo}}>
-                <StateContext.Provider value={{currentSongInfo: currentSongInfo, setCurrentSongInfo: setCurrentSongInfo}}>
-                
-                    <Outlet/>
-                    {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
+            <HistorySongContext.Provider value={{historySong: historySong, setHistorySong: historySongUpdate}}>
+                <UserStateContext.Provider value={{userInfo: userInfo, setUserInfo: setUserInfo}}>
+                    <StateContext.Provider value={{currentSongInfo: currentSongInfo, setCurrentSongInfo: setCurrentSongInfo}}>
                     
-                </StateContext.Provider>
-            </ UserStateContext.Provider >
+                        <Outlet/>
+                        {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
+                        
+                    </ StateContext.Provider>
+                </ UserStateContext.Provider >
+            </ HistorySongContext.Provider>
         </>
     )
 }
@@ -52,20 +63,16 @@ const router = createBrowserRouter([
                         path: '',
                         element: <DiscoverSongTypes />
                     },
-                    {
-                        path: 'library',
-                        element: <Library />
-                    },
+                    
                     {
                         path: 'profile',
-                        element: <Profile />
+                        element: <ProfileButton />
                     },
                     
                     {
                         path: 'trendinghits',
                         element: <TrendingHits />
-                    }
-                    
+                    },
                    
                 ]
             },
@@ -81,19 +88,39 @@ const router = createBrowserRouter([
                 path: 'favorites',
                 element: <FavoriteSongs />
             },
+            {
+                path: 'library',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'mail',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'notification',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'upload',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'forartist',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'trynextpro',
+                element: <CommingSoonComponent />
+            },
+            {
+                path: 'history',
+                element: <ViewHistorySongComponent />
+            },
+            {
+                path: 'language',
+                element: <CommingSoonComponent />
+            }
 
-            //           /harshit/:key/:value
-            //           /harshit/mood/romatic
-            // {
-            //     path: 'discover',
-            //     element: <DiscoverSongTypes />
-            // }
-           
-
-            // {
-            //     path: '/search',
-            //     element: <SearchedSong />
-            // }
         ]
     }
 ])

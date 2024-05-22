@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Favorites = ({style}) => {
+const Favorites = () => {
   return (
-    <Link style={style} to='/favorites'>Favorites</Link>
+    <Link className='header_leftside_Components_Common_Style' to='/favorites'>Favorites</Link>
   )
 }
 

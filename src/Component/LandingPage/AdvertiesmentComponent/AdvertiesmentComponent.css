@@ -1,0 +1,118 @@
+.box-one {
+    margin-top: 60px;
+    padding: 0 70px;
+    height: 450px;
+    background: #f2f2f2;
+    display: flex;
+}
+.box-one-one {
+    flex-grow: 1;
+    position: relative;
+}
+
+.box-one-cont-img {
+    width: 100%;
+    padding-top: 54%;
+}
+.box-one-one-img {
+    background-position: bottom;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.box-one-two {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 325px;
+    margin-left: 45px;
+}
+.box-one-two-1 {
+    line-height: 1.2;
+    font-size: 36px;
+    margin-bottom: 17px;
+}
+.box-one-two-2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+.box-one-two-3 {
+    margin-top: 28px;
+}
+.box-one-two-3-link {
+    margin-right: 4px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    border: 0;
+    font: 0 / 0 a;
+    text-shadow: none;
+    color: transparent;
+    background-color: initial;
+    text-decoration: none;    
+}
+#apple {
+    width: 120px;
+}
+#playstore {
+    width: 135px;
+}
+.box-two {
+    position: relative;
+    height: 350px;
+    background-color: #141414;
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 570px 0 70px;
+    display: flex;
+    align-items: center;
+    background-image: url(https://a-v2.sndcdn.com/assets/images/hp_creator_image_featured_artists-798050ae.jpg);
+}
+.box-two-cont {
+    max-width: 520px;
+}
+.box-two-one {
+    font-size: 36px;
+}
+.box-two-two {
+    font-size: 24px;
+    line-height: 1.35;
+    margin: 11px 0 26px;
+}
+.box-two-three {
+    text-align: center;
+    vertical-align: initial;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    line-height: 18px;
+    background: transparent;
+    color: #fff;
+    border-color: #ccc;
+    font-size: 18px;
+    padding: 13px 24px;
+    height: 46px;
+    text-decoration: none;
+}
+.box-three {
+    text-align: center;
+    height: 375px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.box-three-one {
+    font-size: 36px;
+}
+.box-three-two {
+    font-size: 24px;
+    margin-top: 7px;
+}

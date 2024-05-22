@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
-import Logo from "./Logo";
-import LogoutButton from "../../Nav/Authentication/LogoutButton";
 import UserStateContext from "../../contexts/UserStateContext";
-import SigninModal from "../../Nav/SigninModal";
+import SigninModal from "../../Nav/SigninModal/SigninModal";
+import LogoutButton from "../../Nav/LogoutButton/LogoutButton";
 
 const HeaderAuthenticationBtn = () => {
   const [open, setOpen] = React.useState(false);
@@ -30,13 +29,15 @@ let loginDetail
     float: 'left',
     marginRight: '10px',
     height: '26px',
-    borderRadius: '3px'
+    borderRadius: '3px',
+    alignItems: 'center',
+    fontSize: '14px'
   }
   // console.log('userInfo.isLoggedIn', isUserLoggedIn)
-  return userInfo.isLoggedIn ? (<LogoutButton />) : (
+  return (
     <>
-    <div style={{display: 'block'}}>
-      <div style={{padding: '9px 10px 10px'}}>
+    <div  style={{display: 'flex', alignItems: 'center'}}>
+      <div style={{padding: '12px 4px'}}>
         <Button style={Stylebtn} onClick={()=>{handleOpen('signin')}}>Signin</Button>
         <Button style={{...Stylebtn, backgroundColor: '#f50', borderColor: '#f50'}} onClick={()=>handleOpen('signup')}>Create Account</Button>
         {/* <Button style={Stylebtn} onClick={handleOpen}>For Artist</Button> */}

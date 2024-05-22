@@ -1,0 +1,18 @@
+.sc-link-verylight {
+    font-size: 14px;
+    font-weight: 100;
+    text-decoration: none;
+    color: #ccc;
+}
+.l-front-footer {
+    display: block;
+    unicode-bidi: isolate;
+    margin-bottom: 70px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.sc-border-light-top {
+    border-top: 1px solid #f2f2f2;
+}

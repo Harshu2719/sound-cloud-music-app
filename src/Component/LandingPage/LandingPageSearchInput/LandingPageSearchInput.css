@@ -1,0 +1,24 @@
+.box1 {
+    padding: 49px 0px 0px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inputStyle {
+    padding: 0px;
+    display: inline-block;
+    width: 600px;
+    /* margin-right: 14px; */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(242, 242, 242);
+    height: 46px;
+    padding-left: 15px;
+}
+.styleDiv {
+    position: relative;
+}

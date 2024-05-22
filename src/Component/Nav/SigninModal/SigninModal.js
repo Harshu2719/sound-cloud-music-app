@@ -1,7 +1,7 @@
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Authentication from './Authentication/Authentication.js';
+import Authentication from '../Authentication/Authentication.js';
 import React, { useEffect } from "react";
 
 
@@ -20,7 +20,7 @@ const SigninModal = ({open, handleClose, condition, setCondition})=> {
         borderRadius: '2px'
       };
       const styleText = {
-        color: '#999',
+        color: 'black',
         fontWeight: '100',
         lineHeight: '17.55px',
         fontFamily: 'Inter, sans-serif',

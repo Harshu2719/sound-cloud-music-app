@@ -47,16 +47,16 @@ const FavoriteSongs = () => {
     return (
         <>
             <Header />
-            <div style={{width: '1240px', margin: 'auto', paddingTop: '25px'}}>
+            <div style={{width: '72%', margin: 'auto', paddingTop: '60px'}}>
                 {(localStorage.getItem('token') === null) ? (<>
-                    <div style={{width: '1240px', marginLeft: 'auto'}}>
+                    <div style={{width: '100%', marginLeft: 'auto'}}>
                         <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
                             <div style={style}></div>
                             <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>Please Login....</h3>   
                         </div>
                     </div></>) :
                 (favoriteSongs?.length === 0) ? (<>
-                    <div style={{width: '1240px', marginLeft: 'auto'}}>
+                    <div style={{width: '100%', marginLeft: 'auto'}}>
                         <div style={{margin: 'auto', textAlign: 'center', paddingTop: '120px'}}>
                             <div style={style}></div>
                             <h3 style={{fontSize: '24px',fontFamily: 'Inter,sans-serif', fontWeight: '100', marginTop: '14px'}}>You have no likes yet</h3>
@@ -65,8 +65,11 @@ const FavoriteSongs = () => {
                     </div></>
                 ):
                 (<>
-                    <h2>These are favorite songs</h2>
-                    <SongList songs={favoriteSongs}  />
+                    <div >
+                        <h2 style={{fontSize: '24px', marginLeft: '100px'}}>These are favorite songs</h2>
+                        <SongList songs={favoriteSongs}  />
+                    </div>
+                    
                 </>)
                 }
             </div>

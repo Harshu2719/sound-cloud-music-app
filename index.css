@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body {
@@ -5,26 +10,8 @@ body {
 }
 
 
-.p-box {
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    height: 450px;
-    width: 1240px ;
-    background: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_featured_artists-8081257b.jpg) 50%/cover no-repeat;
-}
 
-.c1-box {
-    justify-content: space-evenly;
-    color: white;
-    text-decoration: none;
-    padding: 20px;
-    display: flex;
-}
-.p-heading {
-    color: white;
-    padding: 20px;
-}
+
 #modal-modal-title {
     margin-bottom: 10px;
 }

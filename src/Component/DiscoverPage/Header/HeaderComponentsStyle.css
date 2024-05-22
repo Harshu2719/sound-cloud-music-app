@@ -1,0 +1,109 @@
+.firstDivStyle {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.secondDivStyle {
+    display: flex;
+    width: 1240px;
+    height: 46px;
+    background-color: #333;
+    align-items: center;
+}
+.header_leftside_Components_Common_Style {
+    outline: 0;
+    color: #ccc;
+    border-bottom: none;
+    display: block;
+    padding: 12px 0;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 104px;
+    border-right: 1px solid #111;
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    text-decoration: none;
+    margin-left: 0px;
+    font-size: 14px;
+}
+#notificationStyle {
+    background: url(https://a-v2.sndcdn.com/assets/images/activities-66caaa5e.svg) 50% 50% no-repeat;
+    padding:  25px;
+    /* margin-bottom: 20px; */
+    align-items: center;
+}
+#mailStyle {
+    background: url(https://a-v2.sndcdn.com/assets/images/messages-f517d0eb.svg) 50% 50% no-repeat;
+    padding: 25px;
+    /* margin-bottom: 20px; */
+    align-items: center;
+}
+
+.headerComponentsCommonStyle {
+    outline: 0;
+    color: #ccc;
+    border-bottom: none;
+    display: block;
+    padding: 12px 0;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 90px;
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    text-decoration: none;
+    margin-left: 0px;
+}
+#tryNextProStyle {
+    color: #f50;
+    float: left;
+    padding: 12px 10px;
+    text-decoration: none;
+    font-size: 14px; 
+    width: 120px;
+}
+#forArtistButtonStyle {
+    float: left;
+    padding: 12px 10px;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ccc;
+}
+#uploadButtonStyle {
+    float: left;
+    padding: 12px 10px;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ccc;
+}
+.rightComponents {
+    align-items: center;
+}
+.headerRightSideButtonStyle {
+    float: left;
+    color: #ccc;
+    width: 74px;
+    padding: 12px 4px;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+    text-align: center;
+}
+.dropDownStyle {
+    width: 13px;
+    height: 13px;
+    color: #ccc;
+}

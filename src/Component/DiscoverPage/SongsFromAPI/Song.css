@@ -1,0 +1,48 @@
+.box_one {
+    border: none;
+    width: 172px; 
+    border-radius: 5px; 
+    height: 172px;
+    margin: 12px;
+    margin-bottom: 40px;
+}
+.stylePlayButton {
+    position: absolute;
+    left: 34%;
+    top: 34%;
+    right: 34%;
+    bottom: 34%;
+    border-radius: 100%;
+    border: none;
+    background-color: #f30;
+    background-repeat: no-repeat;
+    transition: opacity .3s;
+    opacity: 1;
+}
+.styleSongName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    padding: 0px;
+    margin: 0px;
+    font-size: 15px; 
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 600;
+}
+
+.styleSingerName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px; 
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 200;
+}

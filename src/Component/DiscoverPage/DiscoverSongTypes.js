@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import StateContext from '../contexts/StateContext.js';
 import SliderComponent from './SliderComponent.js';
+import HistoryComponent from './HistoryComponent.js';
+import './DiscoverSongTypes.css';
 
 
 const DiscoverSongTypes = () => {
@@ -58,30 +60,35 @@ const DiscoverSongTypes = () => {
       }, [])
   return (
     <>
-    <div style={{width: '1240px',  margin: 'auto'}}>
-        
-        <h1 style={{marginTop: '30px'}}>Discover Tracks and Playlists</h1>
-        <div >
-            <h2>Trending Hits</h2>
-            <SliderComponent sliderSongs={trendingSongs} />
+    <div className='mainLandingPage'>
+      <div className='discoverPage'>
+        <div className='discoverPageOne'>
+          {/* <h1 style={{marginTop: '30px'}}>Discover Tracks and Playlists</h1> */}
+          <div className='songCatogryStyle'>
+              <h2 className='songTypeHeading'>Trending Hits</h2>
+              <SliderComponent sliderSongs={trendingSongs} />
+          </div>
+          <div className='songCatogryStyle' >
+              <h2 className='songTypeHeading'>Romantic Hits</h2>
+              <SliderComponent sliderSongs={romanticMoodSongs} />
+          </div>
+          <div className='songCatogryStyle'>
+              <h2 className='songTypeHeading'>Happy Moods</h2>
+              <SliderComponent sliderSongs={happyMoodSongs} />
+          </div> 
+          <div className='songCatogryStyle'>
+              <h2 className='songTypeHeading'>Mood Excited</h2>
+              <SliderComponent sliderSongs={excitedMoodSongs} />
+          </div> 
+          <div className='songCatogryStyle'>
+              <h2 className='songTypeHeading'>Sad Moods</h2>
+              <SliderComponent sliderSongs={sadMoodSongs} />
+          </div>
+        </div >
+        <div className='discoverPageTwo'>
+          <HistoryComponent />
         </div>
-        <div style={{marginTop: '30px'}}>
-            <h2>Romantic Hits</h2>
-            <SliderComponent sliderSongs={romanticMoodSongs} />
-        </div>
-        <div>
-            <h2>Happy Moods</h2>
-            <SliderComponent sliderSongs={happyMoodSongs} />
-        </div> 
-        <div>
-            <h2>Mood Excited</h2>
-            <SliderComponent sliderSongs={excitedMoodSongs} />
-        </div> 
-        <div>
-            <h2>Sad Moods</h2>
-            <SliderComponent sliderSongs={sadMoodSongs} />
-        </div>
-        
+      </div> 
     </div>
     
     </>

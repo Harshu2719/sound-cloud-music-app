@@ -1,0 +1,41 @@
+.p-box {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    height: 450px;
+    width: 100% ;
+    background: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_featured_artists-8081257b.jpg) 50%/cover no-repeat;
+}
+
+.c1-box {
+    justify-content: space-evenly;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    display: flex;
+}
+.p-heading {
+    color: white;
+    padding: 20px;
+}
+.stylebtn  {
+    border: 1px solid white;
+    color: #fff;
+    border-color: #666;
+    background-color: initial;
+    float: left;
+    margin-right: 10px;
+    height: 26px;
+    border-radius: 3px;
+  }
+
+.stylebtnCreateAcc {
+    background-color: #f50;
+    color: white;
+    border-color: #f50;
+    border: 1px solid #f50;
+    margin-right: 10px;
+    border-radius: 3px;
+    height: 26px;
+    float: left;
+}

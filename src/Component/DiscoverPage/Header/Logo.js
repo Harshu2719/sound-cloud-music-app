@@ -12,9 +12,11 @@ const Logo = () => {
         padding: '12px 0',
     }
   return (
-    <Link style={{display: 'block', width: '69px', height: '46px'}} to='/'>
-        <div style={style}></div>
-    </Link>
+    <div style={{display: 'flex', width: '69px', height: '46px', alignItems: 'center'}}>
+      <Link  to='/'>
+          <div style={style}></div>
+      </Link>
+    </div>
   )
 }
 

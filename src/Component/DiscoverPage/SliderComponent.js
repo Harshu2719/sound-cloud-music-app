@@ -23,32 +23,41 @@ const SliderComponent =({sliderSongs})=>{
     }
     const sliderCard = {
         display:'inline-block',
-        // width:'190px',
-        height:'258px',
+        width:'172px',
+        height:'172px',
         background:'white',
         borderRadius:'10px',
-        marginLeft:'5px',
-        marginRight:'5px',
+        // marginLeft:'5px',
+        marginRight:'15px',
         boxShadow: '5px 5px 1.25rem 0px rgb(0 0 0 / 12%)',
         // position: 'relative',
-        padding: '0px',
+     
     }
     return(
       <section className="card-slider-conatiner">
          <div className="main-slider-contianer">
-             <button style={{width: '32px', height: '32px'}} className="slider-icon left" onClick={()=>{handlescrollLeft()}}> {<SlArrowLeft />}</button>
-             <div className="slider" style={{scrollLeft:scrollcard}} ref={containerRef}>  
-             {sliderSongs?.length === 0 ? <div style={{display: 'flex', flexWrap: 'wrap', width: '1240px'}}><Shimmer /></div> :
-             sliderSongs?.map((hits, index) => {  
-                return (  
-                    <div style={sliderCard}>
-                         <Song song={hits} index={index} songs={sliderSongs}/>
-
-                    </div>
-                     
-                )})
-            }
-             </div>
+            <button style={{width: '32px', height: '32px'}} 
+                className="slider-icon left" 
+                onClick={()=>{handlescrollLeft()}}> 
+                {<SlArrowLeft />}
+            </button>
+            <div className="slider" 
+                style={{scrollLeft:scrollcard}} 
+                ref={containerRef}>  
+                {sliderSongs?.length === 0 ? 
+                    <div 
+                        style={{display: 'flex', flexWrap: 'wrap', width: '1240px'}}>
+                        <Shimmer />
+                    </div> :
+                    sliderSongs?.map((hits, index) => {  
+                    return (  
+                        <div style={sliderCard}>
+                            <Song song={hits} index={index} songs={sliderSongs}/>
+                        </div>
+                        
+                    )})
+                }
+            </div>
              <button style={{width: '32px', height: '32px',}} className="slider-icon right" onClick={()=>{handlescrollRight()}}> {<SlArrowRight />} </button>
          </div>
       </section>

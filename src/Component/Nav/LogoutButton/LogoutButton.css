@@ -1,0 +1,42 @@
+.styleDiv  {
+    outline: 0;
+    color:#ccc;
+    /* background-color: #333; */
+    border-bottom: none;
+    padding: 12px 0 ;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    /* width: 104px; */
+    /* border-left: 1px solid #111; */
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    text-decoration: none;
+    margin-left: 5px;
+    border-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-right: none;
+}
+.styleButton {
+    outline: 0;
+    /* background-color: #333; */
+    border-bottom: none;
+    padding: 12px 4px ;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    /* width: 85px; */
+    border-left: 1px solid #111;
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    text-decoration: none;
+    border-top: 1px;
+    border-right: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 0px;
+}

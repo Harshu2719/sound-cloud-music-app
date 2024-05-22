@@ -1,5 +1,5 @@
 import React from 'react';
-import { project_ID, app_Type, base_URL } from '../../constant';
+import { project_ID, app_Type, base_URL } from '../constant';
 import { useState } from 'react';
 
 const Signup = ()=> {

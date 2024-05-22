@@ -11,7 +11,7 @@ const SongImageName = ({currentlyPlayingSong}) => {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '10px',
-
+        width: '360px'
     }
     const styleSinger = {
       fontSize: '12px',
@@ -29,19 +29,26 @@ const SongImageName = ({currentlyPlayingSong}) => {
 
   return (
     <div style={style}>
-        <img style={{float: 'left', width: '30px', height: '30px'}} src = {currentSongInfo?.songList[currentSongInfo.songIndex]?.thumbnail} />
-        <div style={{ flexGrow: '1', lineHeight: '1.5em', alignItems: 'center'}}>
-          <div style={{display: 'inline'}}>
-            <span style={{fontSize: '12px', margin: '0px', paddingLeft: '10px', fontWeight: '600'}}>{currentSongInfo?.songList[currentSongInfo.songIndex]?.title}</span>
-           
-          </div>
-          {(currentSongInfo?.songList[currentSongInfo.songIndex]?.artist[0].name != null) ? 
-            <span style={styleSinger}> {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
-              return (ele?.name)
-            }).join(' || ')}</span> : <div></div>
-          }
+      <img style={{float: 'left', width: '30px', height: '30px'}} 
+        src = {currentSongInfo?.songList[currentSongInfo?.songIndex]?.thumbnail} 
+      />
+      <div style={{ lineHeight: '1.5em', alignItems: 'center', maxWidth: '360px'}}>
+        <div style={{display: 'inline'}}>
+          <span style={{fontSize: '12px', margin: '0px', paddingLeft: '10px', fontWeight: '600'}}>
+            {currentSongInfo?.songList[currentSongInfo.songIndex]?.title}
+          </span>
         </div>
-       <span style={{marginLeft: '5px'}}><SetFavoriteSongButton currentlyPlayingSong={currentlyPlayingSong}/></span>
+        {(currentSongInfo?.songList[currentSongInfo.songIndex]?.artist[0].name != null) ? 
+          <span style={styleSinger}> 
+            {currentSongInfo?.songList[currentSongInfo.songIndex]?.artist.map(ele => {
+              return (ele?.name)
+            }).join(' || ')}
+          </span> : <div></div>
+        }
+        </div>
+      <span style={{marginLeft: '5px'}}>
+        <SetFavoriteSongButton currentlyPlayingSong={currentlyPlayingSong}/>
+      </span>
     </div>
   )
 }

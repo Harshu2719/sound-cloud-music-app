@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import UserStateContext from '../../contexts/UserStateContext';
 import Alert from '@mui/material/Alert';
+import './Authentication.css';
 
 const Authentication = ({condition, handleClose})=> {
     const [name, setName] = useState('')
@@ -14,11 +15,6 @@ const Authentication = ({condition, handleClose})=> {
     const {userInfo, setUserInfo} = useContext(UserStateContext)
     const state = {...userInfo}
     const navigate = useNavigate();
-
-  
-    
-
-    //console.log(UserStateContext);
 
     const userName = (e)=> {
         setName(e.target.value)
@@ -48,7 +44,7 @@ const Authentication = ({condition, handleClose})=> {
                 body: JSON.stringify({...userDetail})   
             })
                 const data = await response.json();
-                console.log(data?.status)
+                console.log(data)
             if(data?.status === 'fail') {
                 setIsItFailed(true)
                 setResponseMessage(data?.message)
@@ -84,6 +80,7 @@ const Authentication = ({condition, handleClose})=> {
                 body: JSON.stringify({...userDetail})   
             })
                 const data = await response.json();
+                console.log(data?.data?.user?.name)
                 if(data?.status === 'fail') {
                     setIsItFailed(true)
                     setResponseMessage(data?.message)
@@ -92,8 +89,8 @@ const Authentication = ({condition, handleClose})=> {
                     localStorage.setItem('token', data?.token) 
                     state.isLoggedIn = true;
                     localStorage.setItem('isLoggedIn', true)
-                    localStorage.setItem('name',data?.data?.name);
-                    state.name = data?.data?.name;
+                    localStorage.setItem('name',data?.data?.user?.name);
+                    state.name = data?.data?.user?.name;
                     setUserInfo(state)
                     handleClose()
                     navigate('/discover')
@@ -104,13 +101,7 @@ const Authentication = ({condition, handleClose})=> {
     }  
         
 
-    const style = {
-        border: '1px solid black',
-        width: '100%',
-        height: '40px',
-        marginBottom: '20px',
-        borderRadius: '4px',
-    }
+    
     const handleAuthentication = () => {
         if(condition === 'signup') {
             authenticationSignup();
@@ -124,17 +115,17 @@ const Authentication = ({condition, handleClose})=> {
         <form>
           {condition === "signup" && (
             <input
-              style={style}
-              type="text"
-              id="name"
-              value={name}
-              onChange={userName}
-              placeholder="TYPE YOUR NAME"
+            className='style'
+            type="text"
+            id="name"
+            value={name}
+            onChange={userName}
+            placeholder="TYPE YOUR NAME"
             />
           )}
           <br />
           <input
-            style={style}
+            className='style'
             type="email"
             id="email"
             value={email}
@@ -143,7 +134,7 @@ const Authentication = ({condition, handleClose})=> {
           />
           <br />
           <input
-            style={style}
+            className='style'
             type="password"
             id="password"
             value={password}
@@ -152,9 +143,9 @@ const Authentication = ({condition, handleClose})=> {
           />
           <br />
             <button
-              style={{ ...style, backgroundColor: "orange" }}
-              type="button"
-              onClick={handleAuthentication}
+                className='styleButton'
+                type="button"
+                onClick={handleAuthentication}
             >
               CONTINUE
             </button>

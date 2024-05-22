@@ -27,12 +27,12 @@ const SearchInput = () => {
         margin: 'auto',
         display: 'flex',
         justifyContent: 'center',
-        width: '378.837px',
+        width: '100%',
         position: 'relative',
     }
   return (
     <div style={style}>
-        <input style={styleInput} type='text' onChange={e => {setSongNameTitle(e.target.value)}} placeholder='Search for songs, artists, bands, podcast.....' />
+        <input style={styleInput} type='text' onChange={e => {setSongNameTitle(e.target.value)}} placeholder='search ' />
         <SearchBarComponent songNameTitle={songNameTitle} />
     </div>
   )

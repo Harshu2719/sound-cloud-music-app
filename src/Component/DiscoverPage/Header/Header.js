@@ -1,37 +1,26 @@
-import React, {  } from 'react'
+import React, { useContext } from 'react'
 import Logo from './Logo';
-import Home from './Home';
+import HomeButton from './HomeButton';
 import Favorites from './Favorites';
 import SearchInput from '../SearchSong/SearchInput';
 import HeaderAuthenticationBtn from './HeaderAuthenticationBtn';
+import LibraryButton from './LibraryButton';
+import './HeaderComponentsStyle.css'
+import TryNextProButton from './TryNextProButton';
+import UploadButton from './UploadButton';
+import UserStateContext from '../../contexts/UserStateContext';
+import ForArtistButton from './ForArtistButton';
+import AfterLoginComponents from '../AfterLoginComponents';
 
 
 const Header = () => {
+  const {userInfo, setUserInfo} = useContext(UserStateContext);
 
-
-  const style = {
-    outline: '0',
-    color: '#ccc',
-    // backgroundColor: '#111',
-    borderBottom: 'none',
-    display: 'block',
-    padding: '12px 0',
-    height: '46px',
-    boxSizing: 'border-box',
-    textAlign: 'center',
-    width: '104px',
-    borderRight: '1px solid #111',
-    fontFamily: 'sans-serif',
-    fontWeight: '100',
-    // fontSize: '14px',
-    lineHeight: '1.5',
-    textDecoration: 'none',
-    marginLeft: '0px'
-}
+  
   const styleBox2 = {
     display: 'flex',
     // justifyContent: 'space-between',
-    width: '1240px',
+    width: '82%',
     height: '46px',
     backgroundColor: '#333'
   }
@@ -43,23 +32,29 @@ const Header = () => {
   }
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#333'}}>
-        <div style={styleBox2}>
-          <div>
-            <Logo />
-          </div> 
-          <nav style={{ height: '46px'}} >
-            <ul style={styleNav}>
-              <Home style={style}/>
-              <Favorites style={style}/>
-              {/* <Library style={style}/> */}
-            </ul>
-          </nav>
-          <div style={{flex: '1'}}>
-            <SearchInput />
-          </div>  
-           { <HeaderAuthenticationBtn /> }
-          </div>
+    <div className='firstDivStyle' >
+      <div className='secondDivStyle' >
+        <div>
+          <Logo />
+        </div> 
+        <nav style={{ height: '46px'}} >
+          <ul style={styleNav}>
+            <HomeButton />
+            <Favorites />
+            <LibraryButton />
+          </ul>
+        </nav>
+        <div style={{flex: '1'}}>
+          <SearchInput />
+        </div>
+        <div className='rightComponents'>
+          {userInfo.isLoggedIn ? <AfterLoginComponents /> :<HeaderAuthenticationBtn />}
+          {/* <UploadButton />  */}
+        </div>
+        <div>
+          {!userInfo.isLoggedIn ? <UploadButton /> : <div></div>}
+        </div> 
+      </div>
     </div>
   )
 }

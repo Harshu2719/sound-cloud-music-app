@@ -7,7 +7,7 @@ const SearchBarButton = ({songNameTitle})=> {
     const styleBtn = {
         height: '15px',
         // padding: '16px',
-        backgroundColor: 'rgb(229, 229, 229)',
+        // backgroundColor: 'rgb(229, 229, 229)',
         color: 'white',
         border: 'none',
         borderRaious: '5px',

@@ -3,7 +3,7 @@ import Song from './Song.js';
 import StateContext from '../../contexts/StateContext';
 import Shimmer from './Shimmer.js';
 
-const SongList = ({songs}) => {
+const SongList = ({songs, recordHistory=true}) => {
   // const [play, setPlay] = useState(false);
 
 
@@ -16,14 +16,15 @@ const SongList = ({songs}) => {
   // }
   return (
     <>
-      <div style={{width: '1240px'}}>       
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+      <div style={{width: '100%'}}>       
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', paddingBottom: '82px'}}>
           {songs?.length === 0 ? <Shimmer /> : 
           songs?.map((song, index) => {  
           return (  
             <Song index={index} 
             song={song}
-            songs={songs}  
+            songs={songs} 
+            recordHistory={recordHistory} 
            />  
           )})
         }</div>

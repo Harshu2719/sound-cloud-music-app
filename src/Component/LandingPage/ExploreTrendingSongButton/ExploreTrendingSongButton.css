@@ -1,0 +1,14 @@
+.divStyle {
+    display: flex;
+    margin-bottom: 70px;
+    justify-content: center;
+}
+.linkStyle {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #f50;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #f50;   
+}

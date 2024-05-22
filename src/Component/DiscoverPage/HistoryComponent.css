@@ -1,0 +1,108 @@
+.mainDivStyle {
+    width: 300px;
+    /* position: fixed; */
+    right: 0px;
+    top: 43px;
+    bottom: 0px;
+}
+
+.mainDivStyleOne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f2f2
+}
+
+.mainDivStyleTwo {
+    background-image: url(https://a-v2.sndcdn.com/assets/images/calendar-f8dabf8c.svg);
+    background-size: 18px 18px;
+    line-height: 24px;
+    width: 21px;
+    margin-right: 4px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    /* background-position: 50%; */
+}
+.listening_history {
+    font-size: 14px;
+    font-weight: 200;
+    text-decoration: none;
+    color: rgb(204, 204, 204);
+}
+.historySongList {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.songDiv {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.historySongThumbnail {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.historySongThumbnailImage {
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    position: relative;
+}
+.stylePlayButton {
+    position: absolute;
+    left: 34%;
+    top: 34%;
+    right: 34%;
+    bottom: 34%;
+    border-radius: 100%;
+    border: none;
+    background-color: #f30;
+    background-repeat: no-repeat;
+    transition: opacity .3s;
+    opacity: 1;
+    z-index: 10; 
+}
+#extraStyle {
+    inset: 23%;
+}
+
+.historySongNameDivOne {
+    line-height: 1.5em;
+    align-items: center;
+    max-width: 248px;
+}
+
+.divTwo {
+    display: inline;
+}
+
+.divTwoSpan {
+    font-size: 12px;
+    margin: 0px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.styleSinger {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    width: 100%;
+    height: 20px;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    padding-left: 10px;
+}
+
+/* .mainDivStyleSong {
+    border-bottom: 1px solid #f2f2f2;
+} */

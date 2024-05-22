@@ -1,0 +1,30 @@
+.mainLandingPage {
+    width: 72%;
+    margin: auto;
+}
+.discoverPage {
+    position: relative;
+    width: 100%;
+    margin-top: 60px;
+}
+.discoverPageOne {
+    padding-right: 50px;
+    margin-right: 320px;
+    border-right: 1px solid #f2f2f2;
+}
+.discoverPageTwo {
+    top: 30px;
+    width: 300px;
+    position: absolute;
+    top: 24px;
+    bottom: 0;
+    right: 0;
+}
+.songCatogryStyle {
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 30px;
+}
+.songTypeHeading {
+    font-size: 24px;
+    margin-left: 10px;
+}
