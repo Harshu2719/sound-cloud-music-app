@@ -8,6 +8,8 @@ import LogoutButton from '../Nav/LogoutButton/LogoutButton';
 import './AfterLoginComponentsStyle.css';
 import UserNameComponents from '../Nav/LogoutButton/UserNameComponent';
 import ChevronDownLogo from './DropDownFirst';
+import ProfilePageComponent from './ProfilePageComponent.js';
+import ProfileButton from './Header/ProfileButton.js';
 
 const AfterLoginComponents = ()=> {
     return (
@@ -16,11 +18,10 @@ const AfterLoginComponents = ()=> {
             <TryNextProButton />
             <ForArtistButton />
             <UploadButton />
-            {/* <ChevronDownLogo /> */}
             <NotificationButton />
             <MailButton />
-            {/* <UserNameComponents /> */}
-            <LogoutButton />
+            <ProfileButton />
+            {/* <LogoutButton /> */}
         </div>
             
         </>

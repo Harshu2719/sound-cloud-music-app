@@ -43,13 +43,9 @@ const Authentication = ({condition, handleClose})=> {
                 headers: header,
                 body: JSON.stringify({...userDetail})   
             })
-                const data = await response.json();
-                console.log(data)
-            if(data?.status === 'fail') {
-                setIsItFailed(true)
-                setResponseMessage(data?.message)
-              
-            } else {
+            const data = await response.json();
+            if(response.ok) {                
+                console.log(data?.data?.user?.name) 
                 localStorage.setItem('token', data?.token) 
                 state.isLoggedIn = true;
                 localStorage.setItem('isLoggedIn', true)
@@ -58,6 +54,9 @@ const Authentication = ({condition, handleClose})=> {
                 setUserInfo(state)
                 handleClose()
                 navigate('/discover')
+            } else {                  
+                setIsItFailed(true)
+                setResponseMessage(data?.message)                    
             }
         } catch {
             alert('Not responding server')
@@ -79,13 +78,9 @@ const Authentication = ({condition, handleClose})=> {
                 headers: header,
                 body: JSON.stringify({...userDetail})   
             })
-                const data = await response.json();
-                console.log(data?.data?.user?.name)
-                if(data?.status === 'fail') {
-                    setIsItFailed(true)
-                    setResponseMessage(data?.message)
-                  
-                } else {
+                if(response.ok) {
+                    const data = await response.json();
+                    console.log(data?.data?.user?.name) 
                     localStorage.setItem('token', data?.token) 
                     state.isLoggedIn = true;
                     localStorage.setItem('isLoggedIn', true)
@@ -94,7 +89,13 @@ const Authentication = ({condition, handleClose})=> {
                     setUserInfo(state)
                     handleClose()
                     navigate('/discover')
-                }
+                } else {    
+                    if(response?.status === 'fail' || response?.status === 401) {
+                        setIsItFailed(true)
+                        setResponseMessage('Wrong Username or Password')                    
+                    }              
+                                       
+                }               
         } catch {
             alert('Not responding server')
         }
@@ -143,7 +144,7 @@ const Authentication = ({condition, handleClose})=> {
           />
           <br />
             <button
-                className='styleButton'
+                className='continuestyleButton'
                 type="button"
                 onClick={handleAuthentication}
             >

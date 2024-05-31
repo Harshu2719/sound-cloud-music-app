@@ -16,32 +16,33 @@ import DiscoverSongTypes from './DiscoverPage/DiscoverSongTypes.js';
 import UserStateContext from './contexts/UserStateContext.js'
 import TrendingHits from './UnUsedComponent/TrendingHits.js';
 import SongResultsComponent from './DiscoverPage/SongResultsComponent.js';
-import LibraryButton from './DiscoverPage/Header/LibraryButton.js';
-import ProfileButton from './DiscoverPage/Header/ProfileButton.js';
 import HistorySongContext from './contexts/HistoryContext.js';
 import CommingSoonComponent from './DiscoverPage/CommingSoonComponent.js';
 import ViewHistorySongComponent from './DiscoverPage/ViewHistorySongComponent.js';
+import FavouriteSongContext from './contexts/FavouriteSongContext.js';
+import ProfilePageComponent from './DiscoverPage/ProfilePageComponent.js';
 
 const App = ()=> {
     const [currentSongInfo, setCurrentSongInfo] = useState({play: false, songIndex: 0, songList: [], allSongs: [], isAudioPlayerVisible: false, favBtn: false, recordHistory: true});
     const [userInfo, setUserInfo] = useState({isLoggedIn: localStorage.getItem('isLoggedIn'), name: localStorage.getItem('name'), email: ''})
     const [historySong, setHistorySong] = useState(JSON.parse(localStorage.getItem('historySong')) || {historySongList: [], songIndex: 0});
+    const [favourites, setFavourites] = useState({favouritesSongList: [], favouritesButtonColor: 'Black' });
     const historySongUpdate = (historySongObect)=> {
         localStorage.setItem('historySong', JSON.stringify(historySongObect))
         setHistorySong(historySongObect);
     }
    
     return (
-        <>
+        <>       
             <HistorySongContext.Provider value={{historySong: historySong, setHistorySong: historySongUpdate}}>
                 <UserStateContext.Provider value={{userInfo: userInfo, setUserInfo: setUserInfo}}>
                     <StateContext.Provider value={{currentSongInfo: currentSongInfo, setCurrentSongInfo: setCurrentSongInfo}}>
-                    
-                        <Outlet/>
-                        {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
-                        
+                        <FavouriteSongContext.Provider value={{favourites: favourites, setFavourites: setFavourites}}>
+                            <Outlet/>
+                            {(currentSongInfo.isAudioPlayerVisible) && <AudioPlayer />}
+                        </ FavouriteSongContext.Provider>
                     </ StateContext.Provider>
-                </ UserStateContext.Provider >
+                </ UserStateContext.Provider>
             </ HistorySongContext.Provider>
         </>
     )
@@ -62,13 +63,7 @@ const router = createBrowserRouter([
                     {
                         path: '',
                         element: <DiscoverSongTypes />
-                    },
-                    
-                    {
-                        path: 'profile',
-                        element: <ProfileButton />
-                    },
-                    
+                    },                    
                     {
                         path: 'trendinghits',
                         element: <TrendingHits />
@@ -119,7 +114,33 @@ const router = createBrowserRouter([
             {
                 path: 'language',
                 element: <CommingSoonComponent />
-            }
+            },
+            {
+                path: 'profile',
+                element: <ProfilePageComponent />,
+                children: [
+                    {
+                        path: 'popular-tracks',
+                        element: <ProfilePageComponent />
+                    },
+                    {
+                        path: 'tracks',
+                        element: <ProfilePageComponent />
+                    },
+                    {
+                        path: 'albums',
+                        element: <ProfilePageComponent />
+                    },
+                    {
+                        path: 'playlists',
+                        element: <ProfilePageComponent />
+                    },
+                    {
+                        path: 'reports',
+                        element: <ProfilePageComponent />
+                    },
+                ]
+            },
 
         ]
     }

@@ -1,0 +1,86 @@
+.userInfoBar {
+    position: relative;
+    padding-top: 15px;
+} 
+.userInfoBar__tabs {
+
+}
+.profileTabs {
+    font-size: 18px;
+    line-height: 1.8;
+    border-bottom: 1px solid #f2f2f2;
+    font-family: Inter, sans-serif;
+    list-style: none;
+    margin: 0;
+    height: 35px;
+}
+.g-tabs-item:first-child {
+    margin-left: 0;
+}
+
+.g-tabs-item {
+    float: left;
+    margin: 0 12px -1px;
+}
+.g-tabs-link {
+    text-decoration: none;
+    
+    color: black;
+}
+.g-tabs-link:hover {
+    border-color: #f50;
+    color: #f50;
+    cursor: default;
+    border-bottom: 2px solid transparent;
+    display: block; 
+    cursor: pointer;  
+}
+.after_list_box {
+    display: flex;
+    height: 400px;
+}
+.comming_soon {
+    width: 70%;
+    border-right: 1px solid #f2f2f2;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.comming_soon_image {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAACnBAMAAADd8MzuAAAAJ1BMVEUAAADt7e3v7+/u7u7u7u7v7+/V1dXu7u7v7+/v7+/u7u7u7u7t7e1+coy7AAAADXRSTlMAK4/V8v8GlP29LPOQA9OSagAAAOlJREFUeAHt3CVCBQEUBdCLdxIR3QEkIgvAXRuVRMatswESGVkC68It/jQPOfeP20mjf+Yl6R2dbzgTA0myfTzfeJZ2k+7L+YIsb6VnviQ76auBLzJSA89krAaezX0NvJqXbhrOiwkGg8FgMBgMBoP/E9zV+gpgMBgMBr9MmPq3MBgMBoPB3wb+Hvzd+1MwGAwGf+uDwWDwN/IlLcCfmQKDweDKIxcYDHbvBAaDwWB/hjQAg8FgMLjgfS4wGAwGg30LAwaDwWAwGFxW16euktFDDTyT6xp4v6w+V1lFsroabMnVeNPu7UDyBMXh8J9inpNdAAAAAElFTkSuQmCC);
+    background-size: 240px 167px;
+    height: 167px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 240px;
+
+}
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-top: 30px;
+}
+.side_items {
+    margin-bottom: 20px;
+}
+.sideList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+
+}
+.list_div {
+    border-right: 1px solid #f2f2f2;
+    padding-right: 40px
+}
+.count {
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 0px;
+}

@@ -1,0 +1,31 @@
+.main_div_profile {
+    width: 80%;
+    margin: auto;
+
+}
+.flex_div {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    background: linear-gradient(to right, rgb(132, 97, 112), rgb(112, 146, 156));
+    padding: 70px 0px 0px 10px;
+    position: relative;
+}
+.uploadImageStyle {
+    border-radius: 50%;
+    /* border: 1px solid black; */
+    background: linear-gradient(to right, rgb(112, 146, 156), rgb(132, 97, 112));
+    width: 200px;
+    height: 200px;
+}
+.uploadNameStyle {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.logout_button_position {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+
+}

@@ -6,6 +6,7 @@ import StateContext from '../contexts/StateContext.js';
 import SongImageName from './SongImageName.js';
 import HistorySongContext from '../contexts/HistoryContext.js';
 import UserStateContext from '../contexts/UserStateContext.js';
+import FavouriteSongContext from '../contexts/FavouriteSongContext.js';
 
 
 
@@ -20,6 +21,10 @@ const AudioPlayer = () => {
     const contextState = {...historySong}
     const currentSong = currentSongInfo?.songList[currentSongInfo?.songIndex]
     const {userInfo, setUserInfo} = useContext(UserStateContext);
+    
+
+
+    
     useEffect(()=>{
       if(currentSongInfo.recordHistory && userInfo.isLoggedIn) {
         const isSongThere = contextState?.historySongList?.indexOf(currentSong);

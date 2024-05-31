@@ -27,7 +27,7 @@ const LogoutButton = () => {
     <>
       <div >
         <Link to='/' >
-            <div style={{alignItems: 'center', textDecoration: 'none', height: '46px', marginLeft: '15px'}}><button className='styleButton' onClick={()=> {click()}}>Log out</button></div>
+            <div><button className='styleButton' onClick={()=> {click()}}>Log out</button></div>
         </Link>
       </div>
         

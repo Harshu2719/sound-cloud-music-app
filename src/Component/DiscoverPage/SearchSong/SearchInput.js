@@ -29,6 +29,7 @@ const SearchInput = () => {
         justifyContent: 'center',
         width: '100%',
         position: 'relative',
+        minWidth: '125px'
     }
   return (
     <div style={style}>

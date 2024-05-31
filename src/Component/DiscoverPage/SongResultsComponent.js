@@ -24,15 +24,17 @@ const SongResultsComponent = () => {
                 method: 'GET', 
                 headers: header,
             })
-            const data = await response.json();
-            setSearchedSong(data?.data);
             if(response.ok) {
+              const data = await response.json();
+              setSearchedSong(data?.data);
               //alert("There is no problem")
-                setIsSongFound(true)
+              setIsSongFound(true)
             } else{
                 setIsSongFound(false);
             }
-        } catch {
+
+        } catch (e) {
+            console.log(e);
             alert('Not responding server')
         }
     }

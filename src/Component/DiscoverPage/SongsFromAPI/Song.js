@@ -6,11 +6,20 @@ import { GiPlayButton } from "react-icons/gi";
 import StateContext from '../../contexts/StateContext';
 import HistorySongContext from '../../contexts/HistoryContext';
 import './Song.css'
+import FavouriteSongContext from '../../contexts/FavouriteSongContext';
 
 const Song = ({index, song, songs, recordHistory=true}) => {
   const [isHovering, setIsHovering] = useState(false);
   const {currentSongInfo, setCurrentSongInfo} = useContext(StateContext);
   const [buttonIcon, setButtonIcon] = useState(GiPlayButton);
+  // const {favourites, setFavourites} = useContext(FavouriteSongContext);
+  // const favoritesState = {...favourites}
+
+  // if(favourites.favouritesSongList.includes(song)) {
+  //   //setFavourites({...favourites, favouritesButtonColor : '#f50'})
+  //   favoritesState.favouritesButtonColor = '#f50';
+  //   setFavourites(favoritesState);
+  // }
   
   let state = {...currentSongInfo};
   const handleMouseOver = () => {
@@ -50,6 +59,7 @@ const Song = ({index, song, songs, recordHistory=true}) => {
         state.play = !state.play;
       }
     }
+    
   const onClickFunction = (e)=> {
     e.preventDefault();
     handleSetPlay()
@@ -58,6 +68,9 @@ const Song = ({index, song, songs, recordHistory=true}) => {
     state.isAudioPlayerVisible = true;
     state.songList = songs;
     state.recordHistory = recordHistory;
+    // logic to check favourite
+
+    state.favBtn = false;
     setCurrentSongInfo(state);
   }
 

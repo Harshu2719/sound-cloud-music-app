@@ -27,16 +27,15 @@
     height: 46px;
     box-sizing: border-box;
     text-align: center;
-    /* width: 85px; */
-    border-left: 1px solid #111;
+    width: 85px;
     font-family: sans-serif;
     font-weight: 100;
     line-height: 1.5;
     text-decoration: none;
-    border-top: 1px;
-    border-right: none;
     border: none;
     color: white;
     font-size: 14px;
     margin-bottom: 0px;
+    background-color: #f50;
+    border-radius: 2px;
 }

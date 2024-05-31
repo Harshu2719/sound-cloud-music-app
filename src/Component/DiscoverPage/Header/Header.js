@@ -11,6 +11,8 @@ import UploadButton from './UploadButton';
 import UserStateContext from '../../contexts/UserStateContext';
 import ForArtistButton from './ForArtistButton';
 import AfterLoginComponents from '../AfterLoginComponents';
+import ProfilePageComponent from '../ProfilePageComponent';
+import ProfileButton from './ProfileButton';
 
 
 const Header = () => {
